@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>ProjectsCode</web>
+<name>InstallationInstructionsTemplate</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>xwiki:XWiki.Admin</creator>
+<author>xwiki:XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+<creationDate>1388530800000</creationDate>
+<date>1388530800000</date>
+<contentUpdateDate>1388530800000</contentUpdateDate>
+<version>1.1</version>
+<title>Installation Instructions for Project &lt;project&gt; - version &lt;version&gt;</title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<content>{{info}}See also [[How to deliver a client project&gt;Installation instructions&gt;&gt;Procedures.How to deliver a client project||anchor="HInstallationinstructions"]] about how to fill this document.{{/info}}
+
+{{toc /}}
+
+= 1. Setup of the wiki =
+
+== WAR ==
+
+{{info}}Mention the war to install here: it can be a standard XE/XEM war or a war issued from a web module of the specific project. Link to the standard war at the appropriate version or point to the maven module whose build result is to be installed.{{/info}}
+
+=== War setup ===
+
+{{info}}Mention all configurations that need to be done in the war, which are needed for the project, not comprised in the war build and not standard to a sysadmin performed install such as: file-system attachments configuration, open office server if it's needed by the features of the project, ldap configuration, domain based subwikis, etc.{{/info}}
+
+== Other settings ==
+
+{{info}}Any setup that is needed on the machine where the wiki is running and is non-standard: robots.txt files setup in the apache setup (with links to robots.txt files), special access to be setup, apache configurations for special headers to be sent, etc.{{/info}}
+
+== Wikis ==
+
+{{info}}Mention here what should be installed on the main wiki (the 'base', not the custom code) with link to the xar on maven, or, if it's a custom xar, same, point to it.
+Write instructions for creating all the subwikis that should be created standard (don't forget to mention the default settings of these wikis: default owner, template, etc).
+
+If descriptors are to be changed for special domain names, here is the place to do it.
+{{/info}}
+
+== EM extensions installed ==
+
+{{info}}This section lists all the extensions that should be installed on the wiki with extension manager, **without modifications**. One section for each wiki. Don't forget to mention the versions of the extensions and any step that needs to be taken after install of an extension (e.g. this page in this extension needs to be manually saved with programming rights to work properly).{{/info}}
+
+= 2. Installation of the custom code =
+
+{{info}}Here is where the 'setup' ends, this section is dedicated to the installation of custom code dedicated for this specific client.{{/info}}
+
+== File system modules ==
+
+{{info}}Write here any customized .vm or file system change that is not contained in the war build.{{/info}}
+
+{{info}}Then, one section with subsections like this for every wiki on which custom code is to be installed, including the main wiki:
+
+== &lt;Wiki name&gt; Wiki ==
+
+=== New Install ===
+
+=== Upgrade ===
+
+{{/info}}
+
+= 3. &lt;One time operation name&gt; =
+
+{{info}}If the project has some part of one time operations that need to be done which is unrelated to the application itself and potentially optional, such as data import from an excel, or a csv, for example (which will be valid for the first version of the project), you can put the instructions about how to perform these operations here.{{/info}}</content></xwikidoc>
