@@ -26,158 +26,33 @@
 #set( $discard = $xwiki.ssx.use("ProjectsCode.StyleSheetExtension"))
 #set ($discard = $doc.use('ProjectsCode.ProjectsCodeClass'))
 #set ($discard = $services.localization.use('document', 'ProjectsCode.ProjectsCodeTranslations'))
+#set($configDoc = $xwiki.getDocument("ProjectsCode.ProjectConfig"))
+#set($activeTabs = $configDoc.getValue("activeTabs"))
 #if($context.action=="view")
 ## Tabs
 &lt;div class="floatcontainer"&gt;
     &lt;ul class="xwikitabbar"&gt;
-    #set ($firstIteration=true)
-    #foreach($tabId in ["info", "docs", "sales", "dev", "infra", "stats"])
-        #if((!$request.tab &amp;&amp; $velocityCount==1) || $request.tab==$tabId)
-        &lt;li id="${tabId}ListItem" onclick="location = '?tab=${tabId}'" class="active"&gt;&lt;a href="#" onclick="return false;"&gt;${tabId}&lt;/a&gt;&lt;/li&gt;
+ #foreach($tab in $xwiki.searchDocuments(", BaseObject as obj, IntegerProperty as prop where doc.fullName=obj.name and obj.className='ProjectsCode.ProjectTabClass' and obj.id=prop.id.id and prop.id.name='order' order by prop.value asc"))
+  #set($tabdoc = $xwiki.getDocument($tab))    
+  #set($name = $tabdoc.getValue("name"))
+  #if($activeTabs.contains($name))
+  #if((!$request.tab &amp;&amp; $velocityCount==1) || $request.tab==$name)
+        &lt;li id="${name}ListItem" onclick="location = '?tab=${name}'" class="active"&gt;&lt;a href="#" onclick="return false;"&gt;${name}&lt;/a&gt;&lt;/li&gt;
         #else
-        &lt;li id="${tabId}ListItem" onclick="location = '?tab=${tabId}'"&gt;&lt;a href="#" onclick="return false;"&gt;${tabId}&lt;/a&gt;&lt;/li&gt;
+        &lt;li id="${name}ListItem" onclick="location = '?tab=${name}'"&gt;&lt;a href="#" onclick="return false;"&gt;${name}&lt;/a&gt;&lt;/li&gt;
         #end
     #end
+  #end
     &lt;/ul&gt;
 &lt;/div&gt;
 #end
-#if($request.tab=="sales" &amp;&amp; $context.action=="edit")
-(((
-{{include document="ProjectsCode.SalesOrderSheet" /}}
-)))
-(% class="pSalesOrderButtons buttonwrapper" %)
-(((
-#set($rurl = $escapetool.url($doc.getURL("edit", "tab=sales")))
-#set($token = $services.csrf.token)
-&lt;a class="button" href="$doc.getURL("objectadd", "classname=ProjectsCode.SalesOrderClass&amp;xredirect=${rurl}&amp;form_token=${token}")"&gt;$services.localization.render('prj.salesorder.add'))&lt;/a&gt;
-)))
-#else
-#if(!$request.tab || $request.tab=="info" || $context.action=="edit")
-(% id="pTabInfo" class="xform" %)
-(((
-(% id="pInfo1" %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_title1"&gt;$escapetool.xml($doc.displayPrettyName('title1', false, false))&lt;/label&gt;
-  : $doc.display('title1')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_currentVersion"&gt;$escapetool.xml($doc.displayPrettyName('currentVersion', false, false))&lt;/label&gt;
-  : $doc.display('currentVersion')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_status"&gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&lt;/label&gt;
-  : $doc.display('status')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_riskLevel"&gt;$escapetool.xml($doc.displayPrettyName('riskLevel', false, false))&lt;/label&gt;
-  : $doc.display('riskLevel')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_description"&gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&lt;/label&gt;
-  : $doc.display('description')
-)))
-(% id="pInfo2" %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_projectLeader"&gt;$escapetool.xml($doc.displayPrettyName('projectLeader', false, false))&lt;/label&gt;
-  : $doc.display('projectLeader')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_pm"&gt;$escapetool.xml($doc.displayPrettyName('member_pm', false, false))&lt;/label&gt;
-  : $doc.display('member_pm')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_dev"&gt;$escapetool.xml($doc.displayPrettyName('member_dev', false, false))&lt;/label&gt;
-  : $doc.display('member_dev')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_designer"&gt;$escapetool.xml($doc.displayPrettyName('member_designer', false, false))&lt;/label&gt;
-  : $doc.display('member_designer')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_infra"&gt;$escapetool.xml($doc.displayPrettyName('member_infra', false, false))&lt;/label&gt;
-  : $doc.display('member_infra')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_test"&gt;$escapetool.xml($doc.displayPrettyName('member_test', false, false))&lt;/label&gt;
-  : $doc.display('member_test')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_other"&gt;$escapetool.xml($doc.displayPrettyName('member_other', false, false))&lt;/label&gt;
-  : $doc.display('member_other')
-)))
-(% id="pInfo3"  %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_details"&gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&lt;/label&gt;
-  : $doc.display('details')
-)))
-)))
-#end
-#if($request.tab=="sales" || $context.action=="edit")
-(% id="pTabSales" class="xform" %)
-(((
- {{include document="ProjectsCode.SalesOrderSheet" /}}
-)))
-(% class="pSalesOrderButtons buttonwrapper" %)
-(((
-&lt;a href="$doc.getURL("edit", "tab=sales")"  class="button"&gt;$services.localization.render('prj.salesorder.edit')&lt;/a&gt;
-)))
-#end
-#if($request.tab=="infra" || $context.action=="edit")
-(% id="pTabInfra" class="xform" %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_platformContract"&gt;$escapetool.xml($doc.displayPrettyName('platformContract', false, false))&lt;/label&gt;
-  : $doc.display('platformContract')
-)))
-#end
-#if($request.tab=="dev" || $context.action=="edit")
-(% id="pTabDev" class="xform" %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_issueApplicationURL"&gt;$escapetool.xml($doc.displayPrettyName('issueApplicationURL', false, false))&lt;/label&gt;
-  : $doc.display('issueApplicationURL')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_versionControlURL"&gt;$escapetool.xml($doc.displayPrettyName('versionControlURL', false, false))&lt;/label&gt;
-  : $doc.display('versionControlURL')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productVersion"&gt;$escapetool.xml($doc.displayPrettyName('productVersion', false, false))&lt;/label&gt;
-  : $doc.display('productVersion')
-  #if ($context.display == 'edit')
-    ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productCustomizations"&gt;$doc.display('productCustomizations')$escapetool.xml($doc.displayPrettyName('productCustomizations', false, false))&lt;/label&gt;
-  #else
-    ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productCustomizations"&gt;$escapetool.xml($doc.displayPrettyName('productCustomizations', false, false))&lt;/label&gt;
-    : $doc.display('productCustomizations')
-  #end
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productBranch"&gt;$escapetool.xml($doc.displayPrettyName('productBranch', false, false))&lt;/label&gt;
-  : $doc.display('productBranch')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productVersionControlURLs"&gt;$escapetool.xml($doc.displayPrettyName('productVersionControlURLs', false, false))&lt;/label&gt;
-  : $doc.display('productVersionControlURLs')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productIssues"&gt;$escapetool.xml($doc.displayPrettyName('productIssues', false, false))&lt;/label&gt;
-  : $doc.display('productIssues')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productCustomizationIssues"&gt;$escapetool.xml($doc.displayPrettyName('productCustomizationIssues', false, false))&lt;/label&gt;
-  : $doc.display('productCustomizationIssues')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productWorkedaroundIssues"&gt;$escapetool.xml($doc.displayPrettyName('productWorkedaroundIssues', false, false))&lt;/label&gt;
-  : $doc.display('productWorkedaroundIssues')
-)))
-#end
-#if($request.tab=="stats" || $context.action=="edit")
-(% id="pTabStats" class="xform" %)
-(((
-Statistics
-)))
-#end
-#if($request.tab=="docs" || $context.action=="edit")
-(% id="pTabDocs" class="xform" %)
-(((
-(% id="pDocs1" %)
-(((
-== Install Log ==
-
-{{projectdocuments id="pd1" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title" tag="installlog"/}}
-
-== Install Instructions ==
-
-{{projectdocuments id="pd2" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title" tag="installinstructions"/}}
-)))
-(% id="pDocs1" %)
-(((
-== Specifications ==
-
-{{projectdocuments id="pd3" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, status, version" tag="specifications"/}}
-
-== Planning ==
-
-{{projectdocuments id="pd4" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, status, version" tag="planning"/}}
-
-== OAT ==
-
-{{projectdocuments id="pd5" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, status, version" tag="oat"/}}
-
-)))
-(% id="pDocs3" %)
-(((
-== All Documents ==
-
-{{projectdocuments id="pd6" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, status, version" tagCloud="true" /}}
-)))
-)))
-#end
+## including all tabs
+ #foreach($tab in $xwiki.searchDocuments(", BaseObject as obj, IntegerProperty as prop where doc.fullName=obj.name and obj.className='ProjectsCode.ProjectTabClass' and obj.id=prop.id.id and prop.id.name='order' order by prop.value asc"))
+ #set($tabdoc = $xwiki.getDocument($tab))    
+ #set($name = $tabdoc.getValue("name"))
+ #if($activeTabs.contains($name))
+{{include document="$tab" /}}
+ #end
 #end
 {{/html}}
 {{/velocity}}</content></xwikidoc>

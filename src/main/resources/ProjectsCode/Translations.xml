@@ -82,4 +82,5 @@ prj.templates.installlog=Installations Log
 prj.templates.installinstructions=Installations Instructions
 platform.index.status=Status
 platform.index.version=Version
-</content></xwikidoc>
+prj.config.title=Projects Application Configuration
+admin.projects=Projects Application</content></xwikidoc>

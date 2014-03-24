@@ -122,12 +122,12 @@
 
 #pDocs1 {
  float: left;
- width: 45%;
+ width: 49%;
 }
 
 #pDocs2 {
  float: right;
- width: 45%;
+ width: 49%;
 }
 
 #pDocs3 {

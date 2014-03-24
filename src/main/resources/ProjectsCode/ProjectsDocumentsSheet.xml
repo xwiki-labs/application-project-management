@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>ProjectsCode</web>
+<name>ProjectsDocumentsSheet</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>xwiki:XWiki.Admin</creator>
+<author>xwiki:XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+<creationDate>1388530800000</creationDate>
+<date>1388530800000</date>
+<contentUpdateDate>1388530800000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>ProjectsCode.ProjectTabClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<name>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<picker>0</picker>
+<prettyName>name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<order>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>order</name>
+<number>3</number>
+<numberType>integer</numberType>
+<prettyName>order</prettyName>
+<size>3</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.NumberClass</classType>
+</order>
+<tabName>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>tabName</name>
+<number>2</number>
+<picker>0</picker>
+<prettyName>tabName</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</tabName>
+</class>
+<name>ProjectsCode.ProjectsDocumentsSheet</name>
+<number>0</number>
+<className>ProjectsCode.ProjectTabClass</className>
+<guid>31790e96-2431-4479-ab39-f8caf156f54f</guid>
+<property>
+<name>docs</name>
+</property>
+<property>
+<order>2</order>
+</property>
+<property>
+<tabName>pTabDocs</tabName>
+</property>
+</object>
+<content>{{velocity}}
+{{html wiki="true"}}
+#if($request.tab=="docs")
+(% id="pTabDocs" class="xform" %)
+(((
+(% id="pDocs1" %)
+(((
+#set($done = false)
+#set($configDoc = $xwiki.getDocument("ProjectsCode.ProjectConfig"))
+#set($tags = $configDoc.getValue("documentTags"))
+#set($nb = $tags.size())
+#set($midnb = $nb / 2)
+#foreach($tag in $tags)
+#if($velocityCount&gt;$midnb &amp;&amp; $done==false)
+#set($done = true)
+)))
+(% id="pDocs2" %)
+(((
+#end
+== $tag ==
+
+{{projectdocuments id="pd${velocityCount}" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title" tag="${tag}"/}}
+#end
+)))
+#set($velocityCount = $velocityCount + 1)
+(% id="pDocs3" %)
+(((
+== All Documents ==
+
+{{projectdocuments id="pd${velocityCount}" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, status, version" tagCloud="true" /}}
+)))
+)))
+#end
+{{/html}}
+{{/velocity}}</content></xwikidoc>
