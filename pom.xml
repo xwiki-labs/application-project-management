@@ -27,9 +27,9 @@
     <version>35</version>
   </parent>
   <groupId>org.xwiki.contrib</groupId>
-  <artifactId>xwiki-application-software-project-application</artifactId>
-  <version>VERSION</version>
+  <artifactId>xwiki-application-project</artifactId>
+  <version>1.0</version>
   <packaging>xar</packaging>
-  <name>XWiki Application - Software Project Application</name>
-  <description>Software Project Management Application</description>
+  <name>XWiki Application - Project Application</name>
+  <description>XWiki Project Management Application</description>
 </project>
