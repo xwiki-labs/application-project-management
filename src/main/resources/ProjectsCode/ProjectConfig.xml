@@ -34,21 +34,21 @@
 <activeTabs>
 <cache>0</cache>
 <classname></classname>
-<customDisplay></customDisplay>
+<customDisplay>{{include document="ProjectsCode.SuggestDisplay" /}}</customDisplay>
 <disabled>0</disabled>
-<displayType>checkbox</displayType>
+<displayType>input</displayType>
 <idField></idField>
 <multiSelect>1</multiSelect>
 <name>activeTabs</name>
 <number>2</number>
-<picker>0</picker>
+<picker>1</picker>
 <prettyName>activeTabs</prettyName>
 <relationalStorage>1</relationalStorage>
-<separator> </separator>
-<separators></separators>
-<size>1</size>
+<separator>,</separator>
+<separators>,</separators>
+<size>10</size>
 <sort>none</sort>
-<sql>select prop.value from BaseObject as obj, StringProperty as prop, IntegerProperty as nprop where obj.className='ProjectsCode.ProjectTabClass' and obj.id=prop.id.id and prop.id.name='name' and obj.id=nprop.id.id and nprop.id.name='order' order by nprop.value asc </sql>
+<sql>select nameprop.value from BaseObject as obj, StringProperty as idprop, StringProperty as nameprop where obj.className='XWiki.UIExtensionClass' and obj.id=idprop.id.id and idprop.id.name='extensionPointId' and obj.id=nameprop.id.id and nameprop.id.name='name' and idprop.value='org.xwiki.contrib.project.tab' order by nameprop.value asc</sql>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -58,7 +58,7 @@
 <documentTags>
 <cache>0</cache>
 <classname></classname>
-<customDisplay></customDisplay>
+<customDisplay>{{include document="ProjectsCode.SuggestDisplay" /}}</customDisplay>
 <disabled>0</disabled>
 <displayType>input</displayType>
 <idField></idField>
@@ -68,9 +68,9 @@
 <picker>1</picker>
 <prettyName>documentTags</prettyName>
 <relationalStorage>1</relationalStorage>
-<separator> </separator>
-<separators></separators>
-<size>1</size>
+<separator>,</separator>
+<separators>,</separators>
+<size>10</size>
 <sort>none</sort>
 <sql>select distinct list from BaseObject as obj, DBStringListProperty as prop join prop.list list where obj.className='XWiki.TagClass' and obj.id=prop.id.id and  prop.id.name='tags'</sql>
 <unmodifiable>0</unmodifiable>
@@ -79,30 +79,6 @@
 <valueField></valueField>
 <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
 </documentTags>
-<features>
-<cache>0</cache>
-<classname></classname>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<displayType>checkbox</displayType>
-<idField></idField>
-<multiSelect>1</multiSelect>
-<name>features</name>
-<number>1</number>
-<picker>0</picker>
-<prettyName>features</prettyName>
-<relationalStorage>1</relationalStorage>
-<separator> </separator>
-<separators></separators>
-<size>1</size>
-<sort>none</sort>
-<sql>select prop.value from BaseObject as obj, StringProperty as prop, IntegerProperty as nprop where obj.className='ProjectsCode.ProjectFeatureClass' and obj.id=prop.id.id and prop.id.name='name' and obj.id=nprop.id.id and nprop.id.name='order' order by nprop.value asc </sql>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<valueField></valueField>
-<classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
-</features>
 <productVersionControlTool>
 <cache>0</cache>
 <customDisplay></customDisplay>
@@ -175,59 +151,19 @@
 <className>ProjectsCode.ProjectConfigClass</className>
 <guid>1a2e3903-7417-4609-bfac-c272c031c277</guid>
 <property>
-<activeTabs>
-<value>info</value>
-<value>docs</value>
-<value>sales</value>
-<value>dev</value>
-<value>infra</value>
-<value>stats</value>
-</activeTabs>
+<activeTabs/>
 </property>
 <property>
-<activeTabs2></activeTabs2>
+<documentTags/>
 </property>
 <property>
-<documentTags>
-<value>installlog</value>
-<value>installinstructions</value>
-<value>specifications</value>
-<value>planning</value>
-<value>oat</value>
-</documentTags>
+<productVersionControlTool>none</productVersionControlTool>
 </property>
 <property>
-<features/>
+<taskTool>ProjectsCode.ProjectsNoneSheet</taskTool>
 </property>
 <property>
-<productFeature>1</productFeature>
-</property>
-<property>
-<productVersionControlFeature>1</productVersionControlFeature>
-</property>
-<property>
-<productVersionControlTool>github</productVersionControlTool>
-</property>
-<property>
-<salesOrderFeature>1</salesOrderFeature>
-</property>
-<property>
-<taskFeature>1</taskFeature>
-</property>
-<property>
-<taskTool>ProjectsCode.ProjectsJiraSheet</taskTool>
-</property>
-<property>
-<taskTool2>jira</taskTool2>
-</property>
-<property>
-<versionControlFeature>1</versionControlFeature>
-</property>
-<property>
-<versionControlTool>svn</versionControlTool>
-</property>
-<property>
-<weeklyActivityFeature>1</weeklyActivityFeature>
+<versionControlTool>none</versionControlTool>
 </property>
 </object>
 <object>

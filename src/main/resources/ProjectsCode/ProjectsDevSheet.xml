@@ -23,7 +23,7 @@
 <hidden>false</hidden>
 <object>
 <class>
-<name>ProjectsCode.ProjectTabClass</name>
+<name>XWiki.UIExtensionClass</name>
 <customClass></customClass>
 <customMapping></customMapping>
 <defaultViewSheet></defaultViewSheet>
@@ -31,58 +31,80 @@
 <defaultWeb></defaultWeb>
 <nameField></nameField>
 <validationScript></validationScript>
+<content>
+<disabled>0</disabled>
+<name>content</name>
+<number>3</number>
+<prettyName>Extension Content</prettyName>
+<rows>10</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</content>
+<extensionPointId>
+<disabled>0</disabled>
+<name>extensionPointId</name>
+<number>1</number>
+<prettyName>Extension Point ID</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</extensionPointId>
 <name>
-<customDisplay></customDisplay>
 <disabled>0</disabled>
 <name>name</name>
-<number>1</number>
-<picker>0</picker>
-<prettyName>name</prettyName>
+<number>2</number>
+<prettyName>Extension ID</prettyName>
 <size>30</size>
 <unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
 </name>
-<order>
-<customDisplay></customDisplay>
+<parameters>
 <disabled>0</disabled>
-<name>order</name>
-<number>3</number>
-<numberType>integer</numberType>
-<prettyName>order</prettyName>
-<size>3</size>
+<name>parameters</name>
+<number>4</number>
+<prettyName>Extension Parameters</prettyName>
+<rows>10</rows>
+<size>40</size>
 <unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.NumberClass</classType>
-</order>
-<tabName>
-<customDisplay></customDisplay>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</parameters>
+<scope>
+<cache>0</cache>
 <disabled>0</disabled>
-<name>tabName</name>
-<number>2</number>
-<picker>0</picker>
-<prettyName>tabName</prettyName>
-<size>30</size>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>scope</name>
+<number>5</number>
+<prettyName>Extension Scope</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
 <unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-</tabName>
+<values>wiki=Current Wiki|user=Current User|global=Global</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</scope>
 </class>
 <name>ProjectsCode.ProjectsDevSheet</name>
 <number>0</number>
-<className>ProjectsCode.ProjectTabClass</className>
-<guid>a0b0c29a-7658-462f-bd01-7d169f6861fa</guid>
+<className>XWiki.UIExtensionClass</className>
+<guid>a4c06db1-d116-4ea6-833e-c882e7e2ac97</guid>
+<property>
+<content>{{include document="ProjectsCode.ProjectsDevSheet" /}}</content>
+</property>
+<property>
+<extensionPointId>org.xwiki.contrib.project.tab</extensionPointId>
+</property>
 <property>
 <name>dev</name>
 </property>
 <property>
-<order>4</order>
+<parameters>label=prj.tab.dev.title
+priority=3</parameters>
 </property>
 <property>
-<tabName>pTabDev</tabName>
+<scope>wiki</scope>
 </property>
 </object>
 <content>{{velocity}}
@@ -113,10 +135,10 @@
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productWorkedaroundIssues"&gt;$escapetool.xml($doc.displayPrettyName('productWorkedaroundIssues', false, false))&lt;/label&gt;
   : $doc.display('productWorkedaroundIssues')
 
-#if($context.action == 'view')
- #set($configDoc = $xwiki.getDocument("ProjectsCode.ProjectConfig")) 
- #set($taskTool = $configDoc.getValue("taskTool"))
- {{include document="${taskTool}" /}}
+## include dev extensions
+#set ($extensions = $services.uix.getExtensions('org.xwiki.contrib.project.dev', {'sortByParameter' : 'priority'}))
+#foreach ($extension in $extensions)
+{{html clean=false}}$services.rendering.render($extension.execute(), 'xhtml/1.0'){{/html}}
 #end
 #end
 {{/html}}

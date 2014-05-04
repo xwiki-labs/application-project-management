@@ -14,7 +14,7 @@
 <date>1388530800000</date>
 <contentUpdateDate>1388530800000</contentUpdateDate>
 <version>1.1</version>
-<title></title>
+<title>Translations</title>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
@@ -83,4 +83,13 @@ prj.templates.installinstructions=Installations Instructions
 platform.index.status=Status
 platform.index.version=Version
 prj.config.title=Projects Application Configuration
-admin.projects=Projects Application</content></xwikidoc>
+admin.projects=Projects Application
+prj.tab.info.title=Info
+prj.tab.docs.title=Documents
+prj.tab.task.title=Tasks
+prj.tab.dev.title=Dev
+prj.tab.sales.title=Sales
+prj.tab.infra.title=Infrastructure
+prj.tab.stats.title=Stats
+prj.dev.jira.title=Jira Tasks
+</content></xwikidoc>

@@ -33,21 +33,21 @@
 <activeTabs>
 <cache>0</cache>
 <classname></classname>
-<customDisplay></customDisplay>
+<customDisplay>{{include document="ProjectsCode.SuggestDisplay" /}}</customDisplay>
 <disabled>0</disabled>
-<displayType>checkbox</displayType>
+<displayType>input</displayType>
 <idField></idField>
 <multiSelect>1</multiSelect>
 <name>activeTabs</name>
 <number>2</number>
-<picker>0</picker>
+<picker>1</picker>
 <prettyName>activeTabs</prettyName>
 <relationalStorage>1</relationalStorage>
-<separator> </separator>
-<separators></separators>
-<size>1</size>
+<separator>,</separator>
+<separators>,</separators>
+<size>10</size>
 <sort>none</sort>
-<sql>select prop.value from BaseObject as obj, StringProperty as prop, IntegerProperty as nprop where obj.className='ProjectsCode.ProjectTabClass' and obj.id=prop.id.id and prop.id.name='name' and obj.id=nprop.id.id and nprop.id.name='order' order by nprop.value asc </sql>
+<sql>select nameprop.value from BaseObject as obj, StringProperty as idprop, StringProperty as nameprop where obj.className='XWiki.UIExtensionClass' and obj.id=idprop.id.id and idprop.id.name='extensionPointId' and obj.id=nameprop.id.id and nameprop.id.name='name' and idprop.value='org.xwiki.contrib.project.tab' order by nameprop.value asc</sql>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -57,7 +57,7 @@
 <documentTags>
 <cache>0</cache>
 <classname></classname>
-<customDisplay></customDisplay>
+<customDisplay>{{include document="ProjectsCode.SuggestDisplay" /}}</customDisplay>
 <disabled>0</disabled>
 <displayType>input</displayType>
 <idField></idField>
@@ -67,9 +67,9 @@
 <picker>1</picker>
 <prettyName>documentTags</prettyName>
 <relationalStorage>1</relationalStorage>
-<separator> </separator>
-<separators></separators>
-<size>1</size>
+<separator>,</separator>
+<separators>,</separators>
+<size>10</size>
 <sort>none</sort>
 <sql>select distinct list from BaseObject as obj, DBStringListProperty as prop join prop.list list where obj.className='XWiki.TagClass' and obj.id=prop.id.id and  prop.id.name='tags'</sql>
 <unmodifiable>0</unmodifiable>
@@ -78,30 +78,6 @@
 <valueField></valueField>
 <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
 </documentTags>
-<features>
-<cache>0</cache>
-<classname></classname>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<displayType>checkbox</displayType>
-<idField></idField>
-<multiSelect>1</multiSelect>
-<name>features</name>
-<number>1</number>
-<picker>0</picker>
-<prettyName>features</prettyName>
-<relationalStorage>1</relationalStorage>
-<separator> </separator>
-<separators></separators>
-<size>1</size>
-<sort>none</sort>
-<sql>select prop.value from BaseObject as obj, StringProperty as prop, IntegerProperty as nprop where obj.className='ProjectsCode.ProjectFeatureClass' and obj.id=prop.id.id and prop.id.name='name' and obj.id=nprop.id.id and nprop.id.name='order' order by nprop.value asc </sql>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<valueField></valueField>
-<classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
-</features>
 <productVersionControlTool>
 <cache>0</cache>
 <customDisplay></customDisplay>
@@ -169,6 +145,38 @@
 <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
 </versionControlTool>
 </class>
+<object>
+<class>
+<name>XWiki.ClassSheetBinding</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<sheet>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>sheet</name>
+<number>1</number>
+<picker>0</picker>
+<prettyName>Sheet</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</sheet>
+</class>
+<name>ProjectsCode.ProjectConfigClass</name>
+<number>0</number>
+<className>XWiki.ClassSheetBinding</className>
+<guid>1b8f77a5-c3e2-4dde-82d4-ec4f4497786a</guid>
+<property>
+<sheet>ProjectConfigSheet</sheet>
+</property>
+</object>
 <object>
 <class>
 <name>XWiki.DocumentSheetBinding</name>

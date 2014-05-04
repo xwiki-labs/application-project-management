@@ -23,6 +23,11 @@
 <hidden>true</hidden>
 <content>{{velocity}}
 {{html wiki="true"}}
+#if($request.tab)
+ #set($currentTab = $request.tab)
+#else
+ #set($currentTab = "info")
+#end
 #set( $discard = $xwiki.ssx.use("ProjectsCode.StyleSheetExtension"))
 #set ($discard = $doc.use('ProjectsCode.ProjectsCodeClass'))
 #set ($discard = $services.localization.use('document', 'ProjectsCode.ProjectsCodeTranslations'))
@@ -32,27 +37,38 @@
 ## Tabs
 &lt;div class="floatcontainer"&gt;
     &lt;ul class="xwikitabbar"&gt;
- #foreach($tab in $xwiki.searchDocuments(", BaseObject as obj, IntegerProperty as prop where doc.fullName=obj.name and obj.className='ProjectsCode.ProjectTabClass' and obj.id=prop.id.id and prop.id.name='order' order by prop.value asc"))
-  #set($tabdoc = $xwiki.getDocument($tab))    
-  #set($name = $tabdoc.getValue("name"))
-  #if($activeTabs.contains($name))
-  #if((!$request.tab &amp;&amp; $velocityCount==1) || $request.tab==$name)
-        &lt;li id="${name}ListItem" onclick="location = '?tab=${name}'" class="active"&gt;&lt;a href="#" onclick="return false;"&gt;${name}&lt;/a&gt;&lt;/li&gt;
-        #else
-        &lt;li id="${name}ListItem" onclick="location = '?tab=${name}'"&gt;&lt;a href="#" onclick="return false;"&gt;${name}&lt;/a&gt;&lt;/li&gt;
-        #end
-    #end
-  #end
+#set ($extensions = $services.uix.getExtensions('org.xwiki.contrib.project.tab', {'sortByParameter' : 'priority'}))
+#if(!$activeTabs||$activeTabs.size()==0)
+#foreach ($extension in $extensions)
+&lt;li id="${extension.id}ListItem" #if($currentTab==$extension.id)class="active"#end&gt;&lt;a href="?tab=${extension.id}"&gt;$services.localization.render($extension.parameters.label)&lt;/a&gt;&lt;/li&gt;
+#end
+#else
+#foreach ($tab in $activeTabs)
+ #set($extensions = $services.uix.getExtensions('org.xwiki.contrib.project.tab', {'select' : $tab }))
+ #foreach($extension in $extensions)
+&lt;li id="${extension.id}ListItem" #if($currentTab==$extension.id)class="active"#end&gt;&lt;a href="?tab=${extension.id}"&gt;$services.localization.render($extension.parameters.label)&lt;/a&gt;&lt;/li&gt;
+ #end
+#end
+#end
     &lt;/ul&gt;
 &lt;/div&gt;
+#if($request.tab)
+ #set($tab = $request.tab)
+#else
+ #set($tab = "info")
 #end
+#set ($extensions = $services.uix.getExtensions('org.xwiki.contrib.project.tab', {'select' : $tab}))
+#foreach ($extension in $extensions)
+{{html clean=false}}$services.rendering.render($extension.execute(), 'xhtml/1.0'){{/html}}
+#end
+#else
 ## including all tabs
- #foreach($tab in $xwiki.searchDocuments(", BaseObject as obj, IntegerProperty as prop where doc.fullName=obj.name and obj.className='ProjectsCode.ProjectTabClass' and obj.id=prop.id.id and prop.id.name='order' order by prop.value asc"))
- #set($tabdoc = $xwiki.getDocument($tab))    
- #set($name = $tabdoc.getValue("name"))
- #if($activeTabs.contains($name))
-{{include document="$tab" /}}
+#set ($extensions = $services.uix.getExtensions('org.xwiki.contrib.project.tab', {'sortByParameter' : 'priority'}))
+#foreach ($extension in $extensions)
+ #if($activeTabs.contains($extension.id))
+{{html clean=false}}$services.rendering.render($extension.execute(), 'xhtml/1.0'){{/html}}
  #end
+#end
 #end
 {{/html}}
 {{/velocity}}</content></xwikidoc>

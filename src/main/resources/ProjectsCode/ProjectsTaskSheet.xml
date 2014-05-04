@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>ProjectsCode</web>
-<name>ProjectsInfoSheet</name>
+<name>ProjectsTaskSheet</name>
 <language></language>
 <defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
@@ -86,22 +86,22 @@
 <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
 </scope>
 </class>
-<name>ProjectsCode.ProjectsInfoSheet</name>
+<name>ProjectsCode.ProjectsTaskSheet</name>
 <number>0</number>
 <className>XWiki.UIExtensionClass</className>
-<guid>195b79cb-e83a-409e-aceb-0901d597c44d</guid>
+<guid>97b7b99e-2a71-4139-99c7-3e54a368da56</guid>
 <property>
-<content>{{include document="ProjectsCode.ProjectsInfoSheet" /}}</content>
+<content>{{include document="ProjectsCode.ProjectsTaskSheet" /}}</content>
 </property>
 <property>
 <extensionPointId>org.xwiki.contrib.project.tab</extensionPointId>
 </property>
 <property>
-<name>info</name>
+<name>task</name>
 </property>
 <property>
-<parameters>label=prj.tab.info.title
-priority=1</parameters>
+<parameters>label=prj.tab.task.title
+priority=3</parameters>
 </property>
 <property>
 <scope>wiki</scope>
@@ -109,45 +109,14 @@ priority=1</parameters>
 </object>
 <content>{{velocity}}
 {{html wiki="true"}}
-#if(!$request.tab || $request.tab=="info" || $context.action=="edit")
-(% id="pTabInfo" class="xform" %)
+#if($request.tab=="task" || $context.action=="edit")
+(% id="pTabTask" class="xform" %)
 (((
-(% id="pInfo1" %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_title1"&gt;$escapetool.xml($doc.displayPrettyName('title1', false, false))&lt;/label&gt;
-  : $doc.display('title1')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_currentVersion"&gt;$escapetool.xml($doc.displayPrettyName('currentVersion', false, false))&lt;/label&gt;
-  : $doc.display('currentVersion')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_status"&gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&lt;/label&gt;
-  : $doc.display('status')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_riskLevel"&gt;$escapetool.xml($doc.displayPrettyName('riskLevel', false, false))&lt;/label&gt;
-  : $doc.display('riskLevel')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_description"&gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&lt;/label&gt;
-  : $doc.display('description')
-)))
-(% id="pInfo2" %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_projectLeader"&gt;$escapetool.xml($doc.displayPrettyName('projectLeader', false, false))&lt;/label&gt;
-  : $doc.display('projectLeader')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_pm"&gt;$escapetool.xml($doc.displayPrettyName('member_pm', false, false))&lt;/label&gt;
-  : $doc.display('member_pm')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_dev"&gt;$escapetool.xml($doc.displayPrettyName('member_dev', false, false))&lt;/label&gt;
-  : $doc.display('member_dev')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_designer"&gt;$escapetool.xml($doc.displayPrettyName('member_designer', false, false))&lt;/label&gt;
-  : $doc.display('member_designer')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_infra"&gt;$escapetool.xml($doc.displayPrettyName('member_infra', false, false))&lt;/label&gt;
-  : $doc.display('member_infra')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_test"&gt;$escapetool.xml($doc.displayPrettyName('member_test', false, false))&lt;/label&gt;
-  : $doc.display('member_test')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_other"&gt;$escapetool.xml($doc.displayPrettyName('member_other', false, false))&lt;/label&gt;
-  : $doc.display('member_other')
-)))
-(% id="pInfo3"  %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_details"&gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&lt;/label&gt;
-  : $doc.display('details')
-)))
-)))
+#if($context.action == 'view')
+ #set($configDoc = $xwiki.getDocument("ProjectsCode.ProjectConfig")) 
+ #set($taskTool = $configDoc.getValue("taskTool"))
+ {{include document="${taskTool}" /}}
+#end
 #end
 {{/html}}
 {{/velocity}}</content></xwikidoc>

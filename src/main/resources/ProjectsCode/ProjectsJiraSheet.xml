@@ -70,11 +70,24 @@
 </property>
 </object>
 <content>{{velocity}}
-== Unresolved tasks ==
-#set($url = "https://jira.xwikisas.com")
-#set($project = "EMC")
-#set($fixVersion = "RFP 1.4")
-{{jira2 style="table" jql="true" url="${url}"}}
-(project = '$project' and fixVersion = '$fixVersion' and resolution='unresolved')
+#set($currentVersion = $doc.getValue("currentVersion"))
+#set($issueApplicationURL = $doc.getValue("issueApplicationURL"))
+#set($index = $issueApplicationURL.lastIndexOf("/"))
+#if($index!=-1)
+ #set($index = $index + 1)
+ #set($jiraProjectName = $issueApplicationURL.substring($index))
+#end
+#set($index = $issueApplicationURL.indexOf("/",10))
+#if($index!=-1)
+ #set($jiraurl = $issueApplicationURL.substring(0, $index))
+#end 
+== $services.localization.render("prj.dev.jira.title") ==
+#if($jiraurl &amp;&amp; $jiraProjectName !="" &amp;&amp; $currentVersion != "")
+{{jira2 style="table" jql="true" url="${jiraurl}"}}
+(project = '$jiraProjectName' and fixVersion = '$currentVersion' and resolution='unresolved')
 {{/jira2}}
-{{/velocity}}</content></xwikidoc>
+#else
+$services.localization.render("prj.dev.jira.configmissing")
+#end
+{{/velocity}}
+</content></xwikidoc>
