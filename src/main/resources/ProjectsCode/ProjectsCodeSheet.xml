@@ -65,7 +65,7 @@
 ## including all tabs
 #set ($extensions = $services.uix.getExtensions('org.xwiki.contrib.project.tab', {'sortByParameter' : 'priority'}))
 #foreach ($extension in $extensions)
- #if($activeTabs.contains($extension.id))
+ #if(!$activateTabs || ($activeTabs.size()==0) || $activeTabs.contains($extension.id))
 {{html clean=false}}$services.rendering.render($extension.execute(), 'xhtml/1.0'){{/html}}
  #end
 #end
