@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1401897386000</creationDate>
+  <date>1402999983000</date>
+  <contentUpdateDate>1402999983000</contentUpdateDate>
   <version>1.1</version>
   <title>OAT</title>
   <defaultTemplate/>
@@ -100,6 +100,43 @@
     </property>
     <property>
       <version/>
+    </property>
+  </object>
+  <object>
+    <class>
+      <name>XWiki.TagClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <tags>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>input</displayType>
+        <multiSelect>1</multiSelect>
+        <name>tags</name>
+        <number>1</number>
+        <prettyName>Tags</prettyName>
+        <relationalStorage>1</relationalStorage>
+        <separator>|</separator>
+        <separators>|,</separators>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <values/>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </tags>
+    </class>
+    <name>ProjectsCode.OATTemplateEn</name>
+    <number>0</number>
+    <className>XWiki.TagClass</className>
+    <guid>bf2c034a-389f-4283-98fd-e2b04c35be6f</guid>
+    <property>
+      <tags>
+        <value>oat</value>
+      </tags>
     </property>
   </object>
   <content>= Delivery Description =
