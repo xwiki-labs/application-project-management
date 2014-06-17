@@ -1,107 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xwikidoc>
-<web>ProjectsCode</web>
-<name>OATTemplateEn</name>
-<language></language>
-<defaultLanguage>en</defaultLanguage>
-<translation>0</translation>
-<parent>ProjectsCode.DocumentClass</parent>
-<creator>xwiki:XWiki.Admin</creator>
-<author>xwiki:XWiki.Admin</author>
-<customClass></customClass>
-<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-<creationDate>1388530800000</creationDate>
-<date>1388530800000</date>
-<contentUpdateDate>1388530800000</contentUpdateDate>
-<version>1.1</version>
-<title>OAT</title>
-<defaultTemplate></defaultTemplate>
-<validationScript></validationScript>
-<comment></comment>
-<minorEdit>false</minorEdit>
-<syntaxId>xwiki/2.1</syntaxId>
-<hidden>false</hidden>
-<object>
-<class>
-<name>ProjectsCode.DocumentClass</name>
-<customClass></customClass>
-<customMapping></customMapping>
-<defaultViewSheet></defaultViewSheet>
-<defaultEditSheet></defaultEditSheet>
-<defaultWeb></defaultWeb>
-<nameField></nameField>
-<validationScript></validationScript>
-<content1>
-<customDisplay>{{include reference="AppWithinMinutes.Content"/}}</customDisplay>
-<disabled>0</disabled>
-<name>content1</name>
-<number>4</number>
-<prettyName>Content</prettyName>
-<script></script>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.ComputedFieldClass</classType>
-</content1>
-<status>
-<cache>0</cache>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<displayType>select</displayType>
-<multiSelect>0</multiSelect>
-<name>status</name>
-<number>2</number>
-<picker>0</picker>
-<prettyName>Status</prettyName>
-<relationalStorage>0</relationalStorage>
-<separator> </separator>
-<separators> ,|</separators>
-<size>1</size>
-<sort>none</sort>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<values>draft|sent|validated|other</values>
-<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-</status>
-<title1>
-<customDisplay>{{include reference="AppWithinMinutes.Title"/}}</customDisplay>
-<disabled>0</disabled>
-<name>title1</name>
-<number>1</number>
-<prettyName>Title</prettyName>
-<script></script>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.ComputedFieldClass</classType>
-</title1>
-<version>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<name>version</name>
-<number>3</number>
-<picker>0</picker>
-<prettyName>Version</prettyName>
-<size>30</size>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-</version>
-</class>
-<name>ProjectsCode.OATTemplateEn</name>
-<number>0</number>
-<className>ProjectsCode.DocumentClass</className>
-<guid>15fe44a0-f59e-4821-a933-6a53726dab61</guid>
-<property>
-<status>draft</status>
-</property>
-<property>
-<version></version>
-</property>
-</object>
-<content>= Delivery Description =
+  <web>ProjectsCode</web>
+  <name>OATTemplateEn</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>ProjectsCode.DocumentClass</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1388530800000</creationDate>
+  <date>1388530800000</date>
+  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <version>1.1</version>
+  <title>OAT</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>ProjectsCode.DocumentClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <content1>
+        <customDisplay>{{include reference="AppWithinMinutes.Content"/}}</customDisplay>
+        <disabled>0</disabled>
+        <name>content1</name>
+        <number>4</number>
+        <prettyName>Content</prettyName>
+        <script/>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.ComputedFieldClass</classType>
+      </content1>
+      <status>
+        <cache>0</cache>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>status</name>
+        <number>2</number>
+        <picker>0</picker>
+        <prettyName>Status</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <sort>none</sort>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <values>draft|sent|validated|other</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </status>
+      <title1>
+        <customDisplay>{{include reference="AppWithinMinutes.Title"/}}</customDisplay>
+        <disabled>0</disabled>
+        <name>title1</name>
+        <number>1</number>
+        <prettyName>Title</prettyName>
+        <script/>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.ComputedFieldClass</classType>
+      </title1>
+      <version>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>version</name>
+        <number>3</number>
+        <picker>0</picker>
+        <prettyName>Version</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </version>
+    </class>
+    <name>ProjectsCode.OATTemplateEn</name>
+    <number>0</number>
+    <className>ProjectsCode.DocumentClass</className>
+    <guid>15fe44a0-f59e-4821-a933-6a53726dab61</guid>
+    <property>
+      <status>draft</status>
+    </property>
+    <property>
+      <version/>
+    </property>
+  </object>
+  <content>= Delivery Description =
 
 {{info}}
 This OAT refers to $wiki_description, version $version_number.
@@ -155,4 +156,5 @@ If this document does not really fit your needs, feel free to create your own do
 (% style="width:99%" %)
 |=Client|=XWiki
 |//(firstname, name, date, signature)//|//(firstname, name, date, signature)//
-|(% height="250" %)|\\</content></xwikidoc>
+|(% height="250" %)|\\</content>
+</xwikidoc>
