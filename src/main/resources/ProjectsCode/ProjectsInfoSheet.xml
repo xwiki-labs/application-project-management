@@ -11,11 +11,11 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1401897375000</creationDate>
+  <date>1403000178000</date>
+  <contentUpdateDate>1403000178000</contentUpdateDate>
   <version>1.1</version>
-  <title/>
+  <title>ProjectsInfoSheet</title>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -123,6 +123,8 @@ priority=1</parameters>
   : $doc.display('status')
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_riskLevel"&gt;$escapetool.xml($doc.displayPrettyName('riskLevel', false, false))&lt;/label&gt;
   : $doc.display('riskLevel')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_crmURL"&gt;$escapetool.xml($doc.displayPrettyName('crmURL', false, false))&lt;/label&gt;
+  : $doc.display('crmURL')
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_description"&gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&lt;/label&gt;
   : $doc.display('description')
 )))
@@ -145,6 +147,12 @@ priority=1</parameters>
 )))
 (% id="pInfo3"  %)
 (((
+#if(!$doc.isNew())
+  ; &lt;label&gt;Subprojects&lt;/label&gt; 
+[[Create a subproject&gt;&gt;path:$doc.getURL('create', 'template=ProjectsCode.ProjectsCodeTemplate&amp;space=Projects')]]
+
+  {{projectdocuments id="pd1" count="5" actions="false" parent="${doc.fullName}" space="Projects" columns="doc.title" tag="project"/}}
+#end
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_details"&gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&lt;/label&gt;
   : $doc.display('details')
 )))
