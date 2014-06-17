@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1401897375000</creationDate>
+  <date>1402912858000</date>
+  <contentUpdateDate>1402912858000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -63,7 +63,7 @@ ProjectsCode.ProjectsCodeClass_currentVersion=Current Version
 ProjectsCode.ProjectsCodeClass_status=Status
 ProjectsCode.ProjectsCodeClass_status_abandonned=abandonned
 ProjectsCode.ProjectsCodeClass_status_waiting=waiting
-ProjectsCode.ProjectsCodeClass_status_potential=potential
+ProjectsCode.ProjectsCodeClass_status_standby=standby
 ProjectsCode.ProjectsCodeClass_status_closed=closed
 ProjectsCode.ProjectsCodeClass_status_inprogress=inprogress
 ProjectsCode.ProjectsCodeClass_riskLevel=Risk Level

@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1401897375000</creationDate>
+  <date>1403169836000</date>
+  <contentUpdateDate>1403000081000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -389,7 +389,7 @@
         <unmodifiable>0</unmodifiable>
         <validationMessage/>
         <validationRegExp/>
-        <values>potential|inprogress|waiting|closed|abandonned</values>
+        <values>standby|inprogress|waiting|closed|abandonned</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </status>
       <title1>
@@ -474,13 +474,13 @@
       <productWorkedaroundIssues/>
     </property>
     <property>
-      <relatedCRMProjects/>
+      <projectLeader/>
     </property>
     <property>
       <riskLevel>unknown</riskLevel>
     </property>
     <property>
-      <status>potential</status>
+      <status>waiting</status>
     </property>
     <property>
       <versionControlURL/>

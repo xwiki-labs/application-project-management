@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1401897373000</creationDate>
+  <date>1403169878000</date>
+  <contentUpdateDate>1403169878000</contentUpdateDate>
   <version>1.1</version>
   <title>ProjectsCode Class</title>
   <defaultTemplate/>
@@ -388,7 +388,7 @@
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
       <validationRegExp/>
-      <values>potential|inprogress|waiting|closed|abandonned</values>
+      <values>standby|inprogress|waiting|closed|abandonned</values>
       <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
     </status>
     <title1>
