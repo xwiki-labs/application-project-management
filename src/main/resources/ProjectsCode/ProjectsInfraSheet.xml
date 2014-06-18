@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1401897387000</creationDate>
+  <date>1403097169000</date>
+  <contentUpdateDate>1403097169000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -114,7 +114,11 @@ priority=5</parameters>
 (% id="pTabInfra" class="xform" %)
 (((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_platformContract"&gt;$escapetool.xml($doc.displayPrettyName('platformContract', false, false))&lt;/label&gt;
-  : $doc.display('platformContract')
+  #if($subproject &amp;&amp; $doc.getValue('platformContract') == '')
+    : $parent.display('platformContract', 'view')
+  #else
+    : $doc.display('platformContract')
+  #end
 )))
 #end
 {{/html}}
