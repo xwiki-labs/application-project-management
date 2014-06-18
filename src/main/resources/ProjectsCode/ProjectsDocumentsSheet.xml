@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897375000</creationDate>
-  <date>1402669494000</date>
-  <contentUpdateDate>1402669494000</contentUpdateDate>
+  <date>1403101980000</date>
+  <contentUpdateDate>1403101980000</contentUpdateDate>
   <version>1.1</version>
   <title>ProjectsDocumentsSheet</title>
   <defaultTemplate/>
@@ -135,7 +135,7 @@ priority=2</parameters>
 #set($tableID = $nb + 1)
 (% id="pDocs3" %)
 (((
-== All Documents ==
+== $services.localization.render('prj.tab.docs.all') ==
 
 {{projectdocuments id="pd${tableID}" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, status, version" tagCloud="true" /}}
 )))

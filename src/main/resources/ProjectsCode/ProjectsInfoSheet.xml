@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897375000</creationDate>
-  <date>1403000178000</date>
-  <contentUpdateDate>1403000178000</contentUpdateDate>
+  <date>1403101704000</date>
+  <contentUpdateDate>1403101704000</contentUpdateDate>
   <version>1.1</version>
   <title>ProjectsInfoSheet</title>
   <defaultTemplate/>
@@ -122,7 +122,11 @@ priority=1</parameters>
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_status"&gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&lt;/label&gt;
   : $doc.display('status')
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_riskLevel"&gt;$escapetool.xml($doc.displayPrettyName('riskLevel', false, false))&lt;/label&gt;
-  : $doc.display('riskLevel')
+  #if($subproject)
+    : $parent.display('riskLevel', 'view')
+  #else
+    : $doc.display('riskLevel')
+  #end
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_crmURL"&gt;$escapetool.xml($doc.displayPrettyName('crmURL', false, false))&lt;/label&gt;
   : $doc.display('crmURL')
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_description"&gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&lt;/label&gt;
@@ -147,9 +151,9 @@ priority=1</parameters>
 )))
 (% id="pInfo3"  %)
 (((
-#if(!$doc.isNew())
-  ; &lt;label&gt;Subprojects&lt;/label&gt; 
-[[Create a subproject&gt;&gt;path:$doc.getURL('create', 'template=ProjectsCode.ProjectsCodeTemplate&amp;space=Projects')]]
+#if(!$doc.isNew() and $context.display != 'edit' and !$subproject)
+  ; &lt;label&gt;$services.localization.render('prj.subproject')&lt;/label&gt; 
+[[$services.localization.render('prj.subproject.create')&gt;&gt;path:$doc.getURL('create', 'template=ProjectsCode.ProjectsCodeTemplate&amp;space=Projects')]]
 
   {{projectdocuments id="pd1" count="5" actions="false" parent="${doc.fullName}" space="Projects" columns="doc.title" tag="project"/}}
 #end

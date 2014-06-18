@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897375000</creationDate>
-  <date>1402498722000</date>
-  <contentUpdateDate>1402498722000</contentUpdateDate>
+  <date>1403102259000</date>
+  <contentUpdateDate>1403102259000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -28,6 +28,14 @@
  #set($currentTab = $request.tab)
 #else
  #set($currentTab = "info")
+#end
+#if($doc.isNew())
+  #set($parent = $xwiki.getDocument($request.parent))
+#else
+  #set($parent = $xwiki.getDocument($doc.getParent()))
+#end
+#if($parent.getObject('ProjectsCode.ProjectsCodeClass'))
+  #set($subproject = 1)
 #end
 #set( $discard = $xwiki.ssx.use("ProjectsCode.StyleSheetExtension"))
 #set ($discard = $doc.use('ProjectsCode.ProjectsCodeClass'))
