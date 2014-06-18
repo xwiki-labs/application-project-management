@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1401897377000</creationDate>
+  <date>1403103677000</date>
+  <contentUpdateDate>1403103677000</contentUpdateDate>
   <version>1.1</version>
   <title>Translations</title>
   <defaultTemplate/>
@@ -57,7 +57,9 @@
       <scope>WIKI</scope>
     </property>
   </object>
-  <content>prj.salesorder.name=Name
+  <content>prj.title=Projects Application
+prj.app.title=Projects
+prj.salesorder.name=Name
 prj.salesorder.status=Status
 prj.salesorder.salesStatus=Sales Status
 prj.salesorder.startDate=Start date
@@ -85,6 +87,9 @@ platform.index.status=Status
 platform.index.version=Version
 prj.config.title=Projects Application Configuration
 admin.projects=Projects Application
+prj.subproject=Sub-project
+prj.subproject.create=Create a sub-project
+prj.tab.docs.all=All Documents
 prj.tab.info.title=Info
 prj.tab.docs.title=Documents
 prj.tab.task.title=Tasks

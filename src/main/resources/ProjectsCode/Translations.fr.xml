@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xwikidoc>
+  <web>ProjectsCode</web>
+  <name>Translations</name>
+  <language>fr</language>
+  <defaultLanguage/>
+  <translation>1</translation>
+  <parent/>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1403099129000</creationDate>
+  <date>1403103693000</date>
+  <contentUpdateDate>1403103693000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Translations</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>prj.title=Application Projets
+prj.app.title=Projets
+prj.salesorder.name=Nom
+prj.salesorder.status=Statut
+prj.salesorder.salesStatus=Statut des ventes
+prj.salesorder.startDate=Date de début
+prj.salesorder.endDate=Date de fin
+prj.salesorder.pmDays=Jours de PM
+prj.salesorder.devDays=Jours de dév
+prj.salesorder.infraDays=Jours d'infra
+prj.salesorder.testDays=Jours de tests
+prj.salesorder.designerDays=Jours de concepteurs
+prj.salesorder.otherDays=Autres jours
+prj.salesorder.amount=Montant
+prj.salesorder.crmProject=CRM
+prj.salesorder.title=Commande(s)
+prj.salesorder.edit=Editer la commande(s)
+prj.salesorder.add=Ajouter une commande
+prj.templates.project=Page de Projet ou Sous-projet
+prj.templates.specifications=Spécifications
+prj.templates.planning=Page de Planning
+prj.templates.infrainfo=Information d'infrastructure
+prj.templates.oaten=OAT (Modèle anglais de VABF)
+prj.templates.oatfr=VABF (Modèle français)
+prj.templates.installlog=Logs d'installations
+prj.templates.installinstructions=Instructions d'installation
+platform.index.status=Statut
+platform.index.version=Version
+prj.config.title=Configuration de l'Application Projet
+admin.projects=Application Projet
+prj.subproject=Sous-projet
+prj.subproject.create=Créer un sous-projet
+prj.tab.docs.all=Tous les Documents
+prj.tab.info.title=Info
+prj.tab.docs.title=Documents
+prj.tab.task.title=Tâches
+prj.tab.dev.title=Dév
+prj.tab.sales.title=Ventes
+prj.tab.infra.title=Infrastructure
+prj.tab.stats.title=Stats
+prj.dev.jira.title=Tâches Jira
+</content>
+</xwikidoc>

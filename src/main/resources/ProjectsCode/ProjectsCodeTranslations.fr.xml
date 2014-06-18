@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xwikidoc>
+  <web>ProjectsCode</web>
+  <name>ProjectsCodeTranslations</name>
+  <language>fr</language>
+  <defaultLanguage/>
+  <translation>1</translation>
+  <parent/>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1403098741000</creationDate>
+  <date>1403189232000</date>
+  <contentUpdateDate>1403189232000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>ProjectsCode.title=Application Projets
+ProjectsCode.app.title=Projets
+# Class fields
+ProjectsCode.ProjectsCodeClass_title1=Nom du projet
+ProjectsCode.ProjectsCodeClass_currentVersion=Version actuelle
+ProjectsCode.ProjectsCodeClass_status=Statut
+ProjectsCode.ProjectsCodeClass_status_abandonned=Abandonné
+ProjectsCode.ProjectsCodeClass_status_waiting=En attente
+ProjectsCode.ProjectsCodeClass_status_standby=A l'arrêt
+ProjectsCode.ProjectsCodeClass_status_closed=Terminé
+ProjectsCode.ProjectsCodeClass_status_inprogress=En cours
+ProjectsCode.ProjectsCodeClass_riskLevel=Niveau de risque
+ProjectsCode.ProjectsCodeClass_riskLevel_high=Haut
+ProjectsCode.ProjectsCodeClass_riskLevel_unknown=Inconnu
+ProjectsCode.ProjectsCodeClass_riskLevel_low=Bas
+ProjectsCode.ProjectsCodeClass_riskLevel_medium=Moyen
+ProjectsCode.ProjectsCodeClass_description=Description courte
+ProjectsCode.ProjectsCodeClass_relatedCRMProjects=CRM Projects
+ProjectsCode.ProjectsCodeClass_projectLeader=Responsable de projet
+ProjectsCode.ProjectsCodeClass_member_pm=Chefs de projet
+ProjectsCode.ProjectsCodeClass_member_dev=Développeurs
+ProjectsCode.ProjectsCodeClass_member_designer=Concepteurs
+ProjectsCode.ProjectsCodeClass_member_infra=Ingénieurs Infrastructure
+ProjectsCode.ProjectsCodeClass_member_test=Testeurs
+ProjectsCode.ProjectsCodeClass_member_other=Autres membres
+ProjectsCode.ProjectsCodeClass_platformContract=Contrat de plate-forme
+ProjectsCode.ProjectsCodeClass_issueApplicationURL=Issue Application URL
+ProjectsCode.ProjectsCodeClass_versionControlURL=Version Control URL
+ProjectsCode.ProjectsCodeClass_productVersion=Product Version
+ProjectsCode.ProjectsCodeClass_productCustomizations=Product Customizations
+ProjectsCode.ProjectsCodeClass_productBranch=Product Branch
+ProjectsCode.ProjectsCodeClass_productVersionControlURLs=Product Version Control URLs
+ProjectsCode.ProjectsCodeClass_productIssues=product issues
+ProjectsCode.ProjectsCodeClass_productCustomizationIssues=product Customization Issues
+ProjectsCode.ProjectsCodeClass_productWorkedaroundIssues=Product Workedaround Issues
+ProjectsCode.ProjectsCodeClass_details=Details
+ProjectsCode.DocumentClass_status_draft=Brouillon
+ProjectsCode.DocumentClass_status_other=Autre
+ProjectsCode.DocumentClass_status_sent=Envoyé
+ProjectsCode.DocumentClass_status_validated=Validé
+
+# Live table generic keys
+projectscode.livetable.doc.title=Titre de la page
+projectscode.livetable.doc.name=Nom de la page
+projectscode.livetable.doc.space=Espace
+projectscode.livetable.doc.fullname=Nom complet
+projectscode.livetable.doc.author=Dernier auteur
+projectscode.livetable.doc.creator=Créateur
+projectscode.livetable.doc.date=Date de mise-à-jour
+projectscode.livetable.doc.creationDate=Date de création
+projectscode.livetable._avatar=Avatar
+projectscode.livetable._images=Images
+projectscode.livetable._attachments=Pièces jointes
+projectscode.livetable._actions=Actions
+projectscode.livetable._actions.edit=Editer
+projectscode.livetable._actions.delete=Supprimer
+projectscode.livetable.emptyvalue=-
+
+# Live table specific keys
+projectscode.livetable.title1=Nom du projet
+projectscode.livetable.currentVersion=Version actuelle
+projectscode.livetable.status=Statut
+projectscode.livetable.riskLevel=Niveau de risque
+projectscode.livetable.description=Description courte
+projectscode.livetable.relatedCRMProjects=CRM Projects
+projectscode.livetable.projectLeader=Responsable de projet
+projectscode.livetable.member_pm=Chefs de projet
+projectscode.livetable.member_dev=Développeurs
+projectscode.livetable.member_designer=Concepteurs
+projectscode.livetable.member_infra=Ingénieurs Infrastructure
+projectscode.livetable.member_test=Testeurs
+projectscode.livetable.member_other=Autres membres
+projectscode.livetable.platformContract=Contrat de plate-forme
+projectscode.livetable.issueApplicationURL=Issue Application URL
+projectscode.livetable.versionControlURL=Version Control URL
+projectscode.livetable.productVersion=Product Version
+projectscode.livetable.productCustomizations=Product Customizations
+projectscode.livetable.productBranch=Product Branch
+projectscode.livetable.productVersionControlURLs=Product Version Control URLs
+projectscode.livetable.productIssues=Product Issues
+projectscode.livetable.productCustomizationIssues=product Customization Issues
+projectscode.livetable.productWorkedaroundIssues=Product Workedaround Issues
+projectscode.livetable.details=Détails</content>
+</xwikidoc>

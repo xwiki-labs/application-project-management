@@ -11,11 +11,11 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1401897373000</creationDate>
+  <date>1403105181000</date>
+  <contentUpdateDate>1403105181000</contentUpdateDate>
   <version>1.1</version>
-  <title>$services.localization.render('platform.appwithinminutes.appHomePageTitle', [$doc.space])</title>
+  <title>$services.localization.render('platform.appwithinminutes.appHomePageTitle', [$services.localization.render('prj.title')])</title>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -167,9 +167,9 @@
       <name>platform.panels.ProjectsCodeApplication</name>
     </property>
     <property>
-      <parameters>label=Projects
+      <parameters>label=$services.localization.render('prj.app.title')
 target=Projects.WebHome
-icon=icon:application</parameters>
+icon=icon:chart_curve</parameters>
     </property>
     <property>
       <scope>wiki</scope>
