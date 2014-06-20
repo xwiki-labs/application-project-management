@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897377000</creationDate>
-  <date>1403105206000</date>
-  <contentUpdateDate>1403105206000</contentUpdateDate>
+  <date>1403256231000</date>
+  <contentUpdateDate>1403256231000</contentUpdateDate>
   <version>1.1</version>
   <title>$services.localization.render('platform.appwithinminutes.appHomePageTitle', [$services.localization.render('prj.title')])</title>
   <defaultTemplate/>
@@ -94,7 +94,7 @@
   'doc.title': {"type":"text","size":20,"displayName":"Project Name","link":"view"},
   'description': {"type":"text","filterable":false,"sortable":false,"html":true},
   'status': {"type":"list","size":10},
-  'currentVersion': {"type":"text","size":10},
+  'doc.date': {"type":"date","size":10},
   'riskLevel': {"type":"list","size":10},
   'projectLeader': {"type":"text","size":10,"html":true},
   '_actions': {"sortable":false,"filterable":false,"html":true,"actions":["edit","delete"]}
@@ -106,10 +106,10 @@
   'tagCloud': true,
   'rowCount': 15,
   'maxPages': 10,
-  'selectedColumn': 'doc.title',
-  'defaultOrder': 'asc'
+  'selectedColumn': 'doc.date',
+  'defaultOrder': 'desc'
 })
-#set ($columns = ['doc.title', 'description', 'status', 'currentVersion', 'riskLevel', 'projectLeader', '_actions'])
+#set ($columns = ['doc.title', 'description', 'status', 'doc.date', 'riskLevel', 'projectLeader', '_actions'])
 #livetable('projectscode' $columns $columnsProperties $options)
 {{/velocity}}</content>
 </xwikidoc>
