@@ -42,7 +42,7 @@
       <name>activeTabs</name>
       <number>2</number>
       <picker>1</picker>
-      <prettyName>activeTabs</prettyName>
+      <prettyName>Active Tabs</prettyName>
       <relationalStorage>1</relationalStorage>
       <separator>,</separator>
       <separators>,</separators>
@@ -66,7 +66,7 @@
       <name>documentTags</name>
       <number>6</number>
       <picker>1</picker>
-      <prettyName>documentTags</prettyName>
+      <prettyName>Document Tags</prettyName>
       <relationalStorage>1</relationalStorage>
       <separator>,</separator>
       <separators>,</separators>
@@ -88,7 +88,7 @@
       <name>productVersionControlTool</name>
       <number>5</number>
       <picker>0</picker>
-      <prettyName>productVersionControlTool</prettyName>
+      <prettyName>Product Version Control Tool</prettyName>
       <relationalStorage>0</relationalStorage>
       <separator> </separator>
       <separators> ,|</separators>
@@ -111,7 +111,7 @@
       <name>taskTool</name>
       <number>3</number>
       <picker>0</picker>
-      <prettyName>taskTool</prettyName>
+      <prettyName>Task Tool</prettyName>
       <relationalStorage>0</relationalStorage>
       <separator> </separator>
       <separators/>
@@ -133,7 +133,7 @@
       <name>versionControlTool</name>
       <number>4</number>
       <picker>0</picker>
-      <prettyName>versionControlTool</prettyName>
+      <prettyName>Version Control Tool</prettyName>
       <relationalStorage>0</relationalStorage>
       <separator> </separator>
       <separators> ,|</separators>
