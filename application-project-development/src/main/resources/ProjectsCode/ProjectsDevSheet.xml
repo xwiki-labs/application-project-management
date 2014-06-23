@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>ProjectsCode</web>
+  <name>ProjectsDevSheet</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>ProjectsCode.ProjectsCodeSheet</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1401897387000</creationDate>
+  <date>1403173504000</date>
+  <contentUpdateDate>1403173504000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>XWiki.UIExtensionClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <content>
+        <disabled>0</disabled>
+        <name>content</name>
+        <number>3</number>
+        <prettyName>Extension Content</prettyName>
+        <rows>10</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </content>
+      <extensionPointId>
+        <disabled>0</disabled>
+        <name>extensionPointId</name>
+        <number>1</number>
+        <prettyName>Extension Point ID</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </extensionPointId>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>2</number>
+        <prettyName>Extension ID</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parameters>
+        <disabled>0</disabled>
+        <name>parameters</name>
+        <number>4</number>
+        <prettyName>Extension Parameters</prettyName>
+        <rows>10</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </parameters>
+      <scope>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>scope</name>
+        <number>5</number>
+        <prettyName>Extension Scope</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>wiki=Current Wiki|user=Current User|global=Global</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </scope>
+    </class>
+    <name>ProjectsCode.ProjectsDevSheet</name>
+    <number>0</number>
+    <className>XWiki.UIExtensionClass</className>
+    <guid>a4c06db1-d116-4ea6-833e-c882e7e2ac97</guid>
+    <property>
+      <content>{{include document="ProjectsCode.ProjectsDevSheet" /}}</content>
+    </property>
+    <property>
+      <extensionPointId>org.xwiki.contrib.project.tab</extensionPointId>
+    </property>
+    <property>
+      <name>dev</name>
+    </property>
+    <property>
+      <parameters>label=prj.tab.dev.title
+priority=3</parameters>
+    </property>
+    <property>
+      <scope>wiki</scope>
+    </property>
+  </object>
+  <content>{{velocity}}
+{{html wiki="true"}}
+#if($request.tab=="dev" || $context.action=="edit")
+(% id="pTabDev" class="xform" %)
+(((
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_issueApplicationURL"&gt;$escapetool.xml($doc.displayPrettyName('issueApplicationURL', false, false))&lt;/label&gt;
+  #if($subproject)
+    : $parent.display('issueApplicationURL', 'view')
+  #else
+    : $doc.display('issueApplicationURL')
+  #end
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_versionControlURL"&gt;$escapetool.xml($doc.displayPrettyName('versionControlURL', false, false))&lt;/label&gt;
+  #if($subproject)
+    : $parent.display('versionControlURL', 'view')
+  #else
+    : $doc.display('versionControlURL')
+  #end
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productVersion"&gt;$escapetool.xml($doc.displayPrettyName('productVersion', false, false))&lt;/label&gt;
+  #if($subproject)
+    : $parent.display('productVersion', 'view')
+  #else
+    : $doc.display('productVersion')
+  #end
+  #if($subproject)
+    ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productCustomizations"&gt;$escapetool.xml($doc.displayPrettyName('productCustomizations', false, false))&lt;/label&gt;
+    : $parent.display('productCustomizations', 'view')
+  #elseif ($context.display == 'edit')
+    ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productCustomizations"&gt;$doc.display('productCustomizations')$escapetool.xml($doc.displayPrettyName('productCustomizations', false, false))&lt;/label&gt;
+  #else
+    ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productCustomizations"&gt;$escapetool.xml($doc.displayPrettyName('productCustomizations', false, false))&lt;/label&gt;
+    : $doc.display('productCustomizations')
+  #end
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productBranch"&gt;$escapetool.xml($doc.displayPrettyName('productBranch', false, false))&lt;/label&gt;
+  : $doc.display('productBranch')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productVersionControlURLs"&gt;$escapetool.xml($doc.displayPrettyName('productVersionControlURLs', false, false))&lt;/label&gt;
+  : $doc.display('productVersionControlURLs')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productIssues"&gt;$escapetool.xml($doc.displayPrettyName('productIssues', false, false))&lt;/label&gt;
+  #if($subproject)
+    #set($issueApplicationURL = $parent.getValue("issueApplicationURL"))
+  #else
+    #set($issueApplicationURL = $doc.getValue("issueApplicationURL"))
+  #end
+  #set($index = $issueApplicationURL.indexOf("/",10))
+  #if($index!=-1)
+    #set($jiraurl = $issueApplicationURL.substring(0, $index))
+  #end
+  #if ($context.display == 'edit' || !$jiraurl)
+  : $doc.display('productIssues')
+  #elseif($doc.getValue('productIssues') != '' &amp;&amp; $xwiki.getDocument('ProjectsCode.ProjectConfig').getValue('taskTool').contains('Jira'))
+    {{jira url="$jiraurl" style="enum"}} 
+    #foreach($issue in $doc.getValue('productIssues').split(','))
+        $issue
+    #end
+    {{/jira}}
+  #end
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productCustomizationIssues"&gt;$escapetool.xml($doc.displayPrettyName('productCustomizationIssues', false, false))&lt;/label&gt;
+  : $doc.display('productCustomizationIssues')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_productWorkedaroundIssues"&gt;$escapetool.xml($doc.displayPrettyName('productWorkedaroundIssues', false, false))&lt;/label&gt;
+  : $doc.display('productWorkedaroundIssues')
+
+## include dev extensions
+#set ($extensions = $services.uix.getExtensions('org.xwiki.contrib.project.dev', {'sortByParameter' : 'priority'}))
+#foreach ($extension in $extensions)
+{{html clean=false}}$services.rendering.render($extension.execute(), 'xhtml/1.0'){{/html}}
+#end
+#end
+{{/html}}
+{{/velocity}}</content>
+</xwikidoc>
