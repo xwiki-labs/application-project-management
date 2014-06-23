@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>ProjectsCode</web>
+  <name>ProjectsInfoSheet</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>ProjectsCode.ProjectsCodeSheet</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1401897375000</creationDate>
+  <date>1403101704000</date>
+  <contentUpdateDate>1403101704000</contentUpdateDate>
+  <version>1.1</version>
+  <title>ProjectsInfoSheet</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>XWiki.UIExtensionClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <content>
+        <disabled>0</disabled>
+        <name>content</name>
+        <number>3</number>
+        <prettyName>Extension Content</prettyName>
+        <rows>10</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </content>
+      <extensionPointId>
+        <disabled>0</disabled>
+        <name>extensionPointId</name>
+        <number>1</number>
+        <prettyName>Extension Point ID</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </extensionPointId>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>2</number>
+        <prettyName>Extension ID</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parameters>
+        <disabled>0</disabled>
+        <name>parameters</name>
+        <number>4</number>
+        <prettyName>Extension Parameters</prettyName>
+        <rows>10</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </parameters>
+      <scope>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>scope</name>
+        <number>5</number>
+        <prettyName>Extension Scope</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>wiki=Current Wiki|user=Current User|global=Global</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </scope>
+    </class>
+    <name>ProjectsCode.ProjectsInfoSheet</name>
+    <number>0</number>
+    <className>XWiki.UIExtensionClass</className>
+    <guid>195b79cb-e83a-409e-aceb-0901d597c44d</guid>
+    <property>
+      <content>{{include document="ProjectsCode.ProjectsInfoSheet" /}}</content>
+    </property>
+    <property>
+      <extensionPointId>org.xwiki.contrib.project.tab</extensionPointId>
+    </property>
+    <property>
+      <name>info</name>
+    </property>
+    <property>
+      <parameters>label=prj.tab.info.title
+priority=1</parameters>
+    </property>
+    <property>
+      <scope>wiki</scope>
+    </property>
+  </object>
+  <content>{{velocity}}
+{{html wiki="true"}}
+#if(!$request.tab || $request.tab=="info" || $context.action=="edit")
+(% id="pTabInfo" class="xform" %)
+(((
+(% id="pInfo1" %)
+(((
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_title1"&gt;$escapetool.xml($doc.displayPrettyName('title1', false, false))&lt;/label&gt;
+  : $doc.display('title1')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_currentVersion"&gt;$escapetool.xml($doc.displayPrettyName('currentVersion', false, false))&lt;/label&gt;
+  : $doc.display('currentVersion')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_status"&gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&lt;/label&gt;
+  : $doc.display('status')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_riskLevel"&gt;$escapetool.xml($doc.displayPrettyName('riskLevel', false, false))&lt;/label&gt;
+  #if($subproject)
+    : $parent.display('riskLevel', 'view')
+  #else
+    : $doc.display('riskLevel')
+  #end
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_crmURL"&gt;$escapetool.xml($doc.displayPrettyName('crmURL', false, false))&lt;/label&gt;
+  : $doc.display('crmURL')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_description"&gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&lt;/label&gt;
+  : $doc.display('description')
+)))
+(% id="pInfo2" %)
+(((
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_projectLeader"&gt;$escapetool.xml($doc.displayPrettyName('projectLeader', false, false))&lt;/label&gt;
+  : $doc.display('projectLeader')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_pm"&gt;$escapetool.xml($doc.displayPrettyName('member_pm', false, false))&lt;/label&gt;
+  : $doc.display('member_pm')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_dev"&gt;$escapetool.xml($doc.displayPrettyName('member_dev', false, false))&lt;/label&gt;
+  : $doc.display('member_dev')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_designer"&gt;$escapetool.xml($doc.displayPrettyName('member_designer', false, false))&lt;/label&gt;
+  : $doc.display('member_designer')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_infra"&gt;$escapetool.xml($doc.displayPrettyName('member_infra', false, false))&lt;/label&gt;
+  : $doc.display('member_infra')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_test"&gt;$escapetool.xml($doc.displayPrettyName('member_test', false, false))&lt;/label&gt;
+  : $doc.display('member_test')
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_other"&gt;$escapetool.xml($doc.displayPrettyName('member_other', false, false))&lt;/label&gt;
+  : $doc.display('member_other')
+)))
+(% id="pInfo3"  %)
+(((
+#if(!$doc.isNew() and $context.display != 'edit' and !$subproject)
+  ; &lt;label&gt;$services.localization.render('prj.subproject')&lt;/label&gt; 
+[[$services.localization.render('prj.subproject.create')&gt;&gt;path:$doc.getURL('create', 'template=ProjectsCode.ProjectsCodeTemplate&amp;space=Projects')]]
+
+  {{projectdocuments id="pd1" count="5" actions="false" parent="${doc.fullName}" space="Projects" columns="doc.title" tag="project"/}}
+#end
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_details"&gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&lt;/label&gt;
+  : $doc.display('details')
+)))
+)))
+#end
+{{/html}}
+{{/velocity}}</content>
+</xwikidoc>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc>
+  <web>ProjectsCode</web>
+  <name>ProjectsCodeTranslations</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>ProjectsCode.ProjectsCodeClass</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1401897375000</creationDate>
+  <date>1403102202000</date>
+  <contentUpdateDate>1403102152000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <object>
+    <class>
+      <name>XWiki.TranslationDocumentClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <scope>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>scope</name>
+        <number>1</number>
+        <prettyName>Scope</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>GLOBAL|WIKI|USER|ON_DEMAND</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </scope>
+    </class>
+    <name>ProjectsCode.ProjectsCodeTranslations</name>
+    <number>0</number>
+    <className>XWiki.TranslationDocumentClass</className>
+    <guid>56ff73ed-27a3-43ef-bbbd-bea85f4e1ff4</guid>
+    <property>
+      <scope>WIKI</scope>
+    </property>
+  </object>
+  <content># Class fields
+ProjectsCode.ProjectsCodeClass_title1=Project Name
+ProjectsCode.ProjectsCodeClass_currentVersion=Current Version
+ProjectsCode.ProjectsCodeClass_status=Status
+ProjectsCode.ProjectsCodeClass_status_abandonned=Abandonned
+ProjectsCode.ProjectsCodeClass_status_waiting=Waiting
+ProjectsCode.ProjectsCodeClass_status_standby=Standby
+ProjectsCode.ProjectsCodeClass_status_closed=Closed
+ProjectsCode.ProjectsCodeClass_status_inprogress=In progress
+ProjectsCode.ProjectsCodeClass_riskLevel=Risk Level
+ProjectsCode.ProjectsCodeClass_riskLevel_high=High
+ProjectsCode.ProjectsCodeClass_riskLevel_unknown=Unknown
+ProjectsCode.ProjectsCodeClass_riskLevel_low=Low
+ProjectsCode.ProjectsCodeClass_riskLevel_medium=Medium
+ProjectsCode.ProjectsCodeClass_description=Short Description
+ProjectsCode.ProjectsCodeClass_relatedCRMProjects=CRM Projects
+ProjectsCode.ProjectsCodeClass_projectLeader=Project Leader
+ProjectsCode.ProjectsCodeClass_member_pm=Project Managers
+ProjectsCode.ProjectsCodeClass_member_dev=Developers
+ProjectsCode.ProjectsCodeClass_member_designer=Designers
+ProjectsCode.ProjectsCodeClass_member_infra=Infrastructure engineers
+ProjectsCode.ProjectsCodeClass_member_test=Testers
+ProjectsCode.ProjectsCodeClass_member_other=Other members
+ProjectsCode.ProjectsCodeClass_platformContract=Platform Contract
+ProjectsCode.ProjectsCodeClass_issueApplicationURL=Issue Application URL
+ProjectsCode.ProjectsCodeClass_versionControlURL=Version Control URL
+ProjectsCode.ProjectsCodeClass_productVersion=Product Version
+ProjectsCode.ProjectsCodeClass_productCustomizations=Product Customizations
+ProjectsCode.ProjectsCodeClass_productBranch=Product Branch
+ProjectsCode.ProjectsCodeClass_productVersionControlURLs=Product Version Control URLs
+ProjectsCode.ProjectsCodeClass_productIssues=Product issues
+ProjectsCode.ProjectsCodeClass_productCustomizationIssues=Product Customization Issues
+ProjectsCode.ProjectsCodeClass_productWorkedaroundIssues=Product Workedaround Issues
+ProjectsCode.DocumentClass_status_draft=Draft
+ProjectsCode.DocumentClass_status_other=Other
+ProjectsCode.DocumentClass_status_sent=Sent
+ProjectsCode.DocumentClass_status_validated=Validated
+
+
+# Live table generic keys
+projectscode.livetable.doc.title=Page title
+projectscode.livetable.doc.name=Page name
+projectscode.livetable.doc.space=Space
+projectscode.livetable.doc.fullname=Page full name
+projectscode.livetable.doc.author=Last Author
+projectscode.livetable.doc.creator=Creator
+projectscode.livetable.doc.date=Update date
+projectscode.livetable.doc.creationDate=Creation date
+projectscode.livetable._avatar=Avatar
+projectscode.livetable._images=Images
+projectscode.livetable._attachments=Attachments
+projectscode.livetable._actions=Actions
+projectscode.livetable._actions.edit=Edit
+projectscode.livetable._actions.delete=Delete
+projectscode.livetable.emptyvalue=-
+
+# Live table specific keys
+projectscode.livetable.title1=Project Name
+projectscode.livetable.currentVersion=Current Version
+projectscode.livetable.status=Status
+projectscode.livetable.riskLevel=Risk Level
+projectscode.livetable.description=Short Description
+projectscode.livetable.relatedCRMProjects=CRM Projects
+projectscode.livetable.projectLeader=Project Leader
+projectscode.livetable.member_pm=Project Managers
+projectscode.livetable.member_dev=Developers
+projectscode.livetable.member_designer=Designers
+projectscode.livetable.member_infra=Infrastructure engineers
+projectscode.livetable.member_test=Testers
+projectscode.livetable.member_other=Other members
+projectscode.livetable.platformContract=Platform Contract
+projectscode.livetable.issueApplicationURL=Issue Application URL
+projectscode.livetable.versionControlURL=Version Control URL
+projectscode.livetable.productVersion=Product Version
+projectscode.livetable.productCustomizations=Product Customizations
+projectscode.livetable.productBranch=Product Branch
+projectscode.livetable.productVersionControlURLs=Product Version Control URLs
+projectscode.livetable.productIssues=product issues
+projectscode.livetable.productCustomizationIssues=product Customization Issues
+projectscode.livetable.productWorkedaroundIssues=Product Workedaround Issues
+projectscode.livetable.details=Details</content>
+</xwikidoc>
