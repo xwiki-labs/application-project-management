@@ -36,6 +36,7 @@
       <groupId>org.xwiki.contrib</groupId>
       <artifactId>application-project-generic</artifactId>
       <version>${project.version}</version>
+      <type>xar</type>
     </dependency>
   </dependencies>
   <build>
@@ -45,7 +46,6 @@
         <groupId>org.xwiki.commons</groupId>
         <artifactId>xwiki-commons-tool-xar-handlers</artifactId>
         <version>${commons.version}</version>
-        <type>xar</type>
       </extension>
     </extensions>
     <plugins>
