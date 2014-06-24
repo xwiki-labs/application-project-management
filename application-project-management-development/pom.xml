@@ -27,7 +27,7 @@
     <artifactId>application-project</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>application-project---development-extension</artifactId>
+  <artifactId>application-project-management-development</artifactId>
   <packaging>xar</packaging>
   <name>Project Application - Development Extension</name>
   <description>Extension to the Project Application for Development Projects</description>

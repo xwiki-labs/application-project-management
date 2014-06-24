@@ -53,12 +53,18 @@
 #foreach($row in $map.get('rows'))
 #set($parent = $xwiki.getDocument($xwiki.getDocument($row.get('doc_fullName')).getParent()))
  #if($parent.getObject('ProjectsCode.ProjectsCodeClass'))
-   #set($discard = $row.put('riskLevel_value', $parent.getValue('riskLevel')))
-   #set($discard = $row.put('riskLevel', $services.localization.render("ProjectsCode.ProjectsCodeClass_riskLevel_${parent.getValue('riskLevel')}")))
-   #set($discard = $row.put('productVersion_value', $parent.getValue('productVersion')))
-   #set($discard = $row.put('productVersion', $parent.getValue('productVersion')))
-   #set($discard = $row.put('productCustomizations_value', $parent.getValue('productCustomizations')))
-   #set($discard = $row.put('productCustomizations', $parent.getValue('productCustomizations')))
+   #if("$!{parent.getValue('riskLevel')}" != "")
+     #set($discard = $row.put('riskLevel_value', $parent.getValue('riskLevel')))
+     #set($discard = $row.put('riskLevel', $services.localization.render("ProjectsCode.ProjectsCodeClass_riskLevel_${parent.getValue('riskLevel')}")))
+   #end
+   #if("$!{parent.getValue('riskLevel')}" != "")
+     #set($discard = $row.put('productVersion_value', $parent.getValue('productVersion')))
+     #set($discard = $row.put('productVersion', $parent.getValue('productVersion')))
+   #end
+   #if("$!{parent.getValue('riskLevel')}" != "")
+     #set($discard = $row.put('productCustomizations_value', $parent.getValue('productCustomizations')))
+     #set($discard = $row.put('productCustomizations', $parent.getValue('productCustomizations')))
+   #end
  #end
 #end
 $jsontool.serialize($map)
