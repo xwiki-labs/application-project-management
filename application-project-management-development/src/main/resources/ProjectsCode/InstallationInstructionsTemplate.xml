@@ -79,8 +79,7 @@
       </tags>
     </property>
   </object>
-  <content>{{info}}See also [[How to deliver a client project&gt;Installation instructions&gt;&gt;Procedures.How to deliver a client project||anchor="HInstallationinstructions"]] about how to fill this document.{{/info}}
-
+  <content>
 {{toc /}}
 
 = 1. Setup of the wiki =
