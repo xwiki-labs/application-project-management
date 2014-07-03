@@ -32,8 +32,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897375000</creationDate>
-  <date>1403102202000</date>
-  <contentUpdateDate>1403102152000</contentUpdateDate>
+  <date>1404131271000</date>
+  <contentUpdateDate>1404131271000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -94,12 +94,12 @@ ProjectsCode.ProjectsCodeClass_riskLevel_medium=Medium
 ProjectsCode.ProjectsCodeClass_description=Short Description
 ProjectsCode.ProjectsCodeClass_relatedCRMProjects=CRM Projects
 ProjectsCode.ProjectsCodeClass_projectLeader=Project Leader
-ProjectsCode.ProjectsCodeClass_member_pm=Project Managers
-ProjectsCode.ProjectsCodeClass_member_dev=Developers
-ProjectsCode.ProjectsCodeClass_member_designer=Designers
-ProjectsCode.ProjectsCodeClass_member_infra=Infrastructure engineers
-ProjectsCode.ProjectsCodeClass_member_test=Testers
-ProjectsCode.ProjectsCodeClass_member_other=Other members
+ProjectsCode.ProjectsCodeClass_member_pm=Project Manager(s)
+ProjectsCode.ProjectsCodeClass_member_dev=Developer(s)
+ProjectsCode.ProjectsCodeClass_member_designer=Designer(s)
+ProjectsCode.ProjectsCodeClass_member_infra=Infrastructure engineer(s)
+ProjectsCode.ProjectsCodeClass_member_test=Tester(s)
+ProjectsCode.ProjectsCodeClass_member_other=Other member(s)
 ProjectsCode.ProjectsCodeClass_platformContract=Platform Contract
 ProjectsCode.ProjectsCodeClass_issueApplicationURL=Issue Application URL
 ProjectsCode.ProjectsCodeClass_versionControlURL=Version Control URL
@@ -141,12 +141,12 @@ projectscode.livetable.riskLevel=Risk Level
 projectscode.livetable.description=Short Description
 projectscode.livetable.relatedCRMProjects=CRM Projects
 projectscode.livetable.projectLeader=Project Leader
-projectscode.livetable.member_pm=Project Managers
-projectscode.livetable.member_dev=Developers
-projectscode.livetable.member_designer=Designers
-projectscode.livetable.member_infra=Infrastructure engineers
-projectscode.livetable.member_test=Testers
-projectscode.livetable.member_other=Other members
+projectscode.livetable.member_pm=Project Manager(s)
+projectscode.livetable.member_dev=Developer(s)
+projectscode.livetable.member_designer=Designer(s)
+projectscode.livetable.member_infra=Infrastructure engineer(s)
+projectscode.livetable.member_test=Tester(s)
+projectscode.livetable.member_other=Other member(s)
 projectscode.livetable.platformContract=Platform Contract
 projectscode.livetable.issueApplicationURL=Issue Application URL
 projectscode.livetable.versionControlURL=Version Control URL
@@ -154,8 +154,8 @@ projectscode.livetable.productVersion=Product Version
 projectscode.livetable.productCustomizations=Product Customizations
 projectscode.livetable.productBranch=Product Branch
 projectscode.livetable.productVersionControlURLs=Product Version Control URLs
-projectscode.livetable.productIssues=product issues
-projectscode.livetable.productCustomizationIssues=product Customization Issues
+projectscode.livetable.productIssues=Product issues
+projectscode.livetable.productCustomizationIssues=Product Customization Issues
 projectscode.livetable.productWorkedaroundIssues=Product Workedaround Issues
 projectscode.livetable.details=Details</content>
 </xwikidoc>

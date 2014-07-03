@@ -26,14 +26,14 @@
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent>AppWithinMinutes.WebHome</parent>
+  <parent>Main.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897373000</creationDate>
-  <date>1403105181000</date>
-  <contentUpdateDate>1403105181000</contentUpdateDate>
+  <date>1403856421000</date>
+  <contentUpdateDate>1403856188000</contentUpdateDate>
   <version>1.1</version>
   <title>$services.localization.render('platform.appwithinminutes.appHomePageTitle', [$services.localization.render('prj.title')])</title>
   <defaultTemplate/>

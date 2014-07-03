@@ -32,8 +32,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897375000</creationDate>
-  <date>1403101704000</date>
-  <contentUpdateDate>1403101704000</contentUpdateDate>
+  <date>1404391189000</date>
+  <contentUpdateDate>1404382547000</contentUpdateDate>
   <version>1.1</version>
   <title>ProjectsInfoSheet</title>
   <defaultTemplate/>
@@ -41,7 +41,7 @@
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>false</hidden>
+  <hidden>true</hidden>
   <object>
     <class>
       <name>XWiki.UIExtensionClass</name>
@@ -133,51 +133,76 @@ priority=1</parameters>
 #if(!$request.tab || $request.tab=="info" || $context.action=="edit")
 (% id="pTabInfo" class="xform" %)
 (((
-(% id="pInfo1" %)
-(((
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_title1"&gt;$escapetool.xml($doc.displayPrettyName('title1', false, false))&lt;/label&gt;
-  : $doc.display('title1')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_currentVersion"&gt;$escapetool.xml($doc.displayPrettyName('currentVersion', false, false))&lt;/label&gt;
-  : $doc.display('currentVersion')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_status"&gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&lt;/label&gt;
-  : $doc.display('status')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_riskLevel"&gt;$escapetool.xml($doc.displayPrettyName('riskLevel', false, false))&lt;/label&gt;
-  #if($subproject)
-    : $parent.display('riskLevel', 'view')
-  #else
-    : $doc.display('riskLevel')
-  #end
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_crmURL"&gt;$escapetool.xml($doc.displayPrettyName('crmURL', false, false))&lt;/label&gt;
-  : $doc.display('crmURL')
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_description"&gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&lt;/label&gt;
-  : $doc.display('description')
-)))
-(% id="pInfo2" %)
+(% id="pInfo" %)
 (((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_projectLeader"&gt;$escapetool.xml($doc.displayPrettyName('projectLeader', false, false))&lt;/label&gt;
   : $doc.display('projectLeader')
+
+(% id="pInfo1" %)
+(((
+#if($context.action != "edit")
+{{attachmentSelector classname="ProjectsCode.ProjectsCodeClass" property="logo" filter="png,jpg,gif" displayImage="true" cssClass="pInfoLogo"/}}
+#end
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_currentVersion"&gt;$escapetool.xml($doc.displayPrettyName('currentVersion', false, false))&lt;/label&gt;  : &lt;span&gt;$doc.display('currentVersion')&lt;/span&gt;
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_status"&gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&lt;/label&gt;  : &lt;span&gt;$doc.display('status')&lt;/span&gt;
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_riskLevel"&gt;$escapetool.xml($doc.displayPrettyName('riskLevel', false, false))&lt;/label&gt;  : &lt;span&gt;#if($subproject) $parent.display('riskLevel', 'view') #else  $doc.display('riskLevel') #end&lt;/span&gt;
+)))
+(% id="pInfo2" %)
+(((
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_description"&gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&lt;/label&gt;
+  : $doc.display('description')
+  #if($context.action == "edit")
+  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_logo"&gt;$escapetool.xml($doc.displayPrettyName('logo', false, false))&lt;/label&gt;
+  {{attachmentSelector classname="ProjectsCode.ProjectsCodeClass" property="logo" filter="png,jpg,gif"/}}
+  #end
+)))
+
+(% id="pInfo1-1" %)
+(((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_pm"&gt;$escapetool.xml($doc.displayPrettyName('member_pm', false, false))&lt;/label&gt;
   : $doc.display('member_pm')
+)))
+(% id="pInfo2-1" %)
+(((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_dev"&gt;$escapetool.xml($doc.displayPrettyName('member_dev', false, false))&lt;/label&gt;
   : $doc.display('member_dev')
+)))
+
+(% id="pInfo1-2" %)
+(((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_designer"&gt;$escapetool.xml($doc.displayPrettyName('member_designer', false, false))&lt;/label&gt;
   : $doc.display('member_designer')
+)))
+(% id="pInfo2-2" %)
+(((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_infra"&gt;$escapetool.xml($doc.displayPrettyName('member_infra', false, false))&lt;/label&gt;
   : $doc.display('member_infra')
+)))
+
+(% id="pInfo1-3" %)
+(((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_test"&gt;$escapetool.xml($doc.displayPrettyName('member_test', false, false))&lt;/label&gt;
   : $doc.display('member_test')
+)))
+(% id="pInfo2-3" %)
+(((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_member_other"&gt;$escapetool.xml($doc.displayPrettyName('member_other', false, false))&lt;/label&gt;
   : $doc.display('member_other')
 )))
+)))
+
 (% id="pInfo3"  %)
 (((
 #if(!$doc.isNew() and $context.display != 'edit' and !$subproject)
-  ; &lt;label&gt;$services.localization.render('prj.subproject')&lt;/label&gt; 
-[[$services.localization.render('prj.subproject.create')&gt;&gt;path:$doc.getURL('create', 'template=ProjectsCode.ProjectsCodeTemplate&amp;space=Projects')]]
+  == $services.localization.render('prj.subproject') ==
+
+  #set($subprojectUrl = $doc.getURL('create', 'template=ProjectsCode.ProjectsCodeTemplate&amp;space=Projects'))
+  [[ [[image:icon:add||style="float:left"]] $services.localization.render('prj.subproject.create')&gt;&gt;path:$subprojectUrl||class="addSubprojectLink"]]
 
   {{projectdocuments id="pd1" count="5" actions="false" parent="${doc.fullName}" space="Projects" columns="doc.title" tag="project"/}}
 #end
-  ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_details"&gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&lt;/label&gt;
+
+  == $escapetool.xml($doc.displayPrettyName('details', false, false)) ==
   : $doc.display('details')
 )))
 )))

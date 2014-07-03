@@ -32,8 +32,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <date>1404382598000</date>
+  <contentUpdateDate>1403856193000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -122,23 +122,63 @@
       <cache>long</cache>
     </property>
     <property>
-      <code>#pInfo1 {
+      <code>#template('colorThemeInit.vm')
+
+.pInfoLogo img {
+float:left;
+max-width:150px;
+max-height:150px;
+}
+
+#pInfo1 {
+ margin-top:10px;
  float: left;
  width: 45%;
+ margin-bottom:10px;
+}
+
+#pInfo1 span{
+ font-weight:normal;
+}
+
+#pInfo1 label{
+ display: inline;
 }
 
 #pInfo2 {
+ margin-top:10px;
+ float: right;
+ width: 45%;
+ margin-bottom:10px;
+}
+
+#pInfo1-1, #pInfo1-2, #pInfo1-3 {
+ float: left;
+ clear: both;
+ width: 45%;
+}
+
+#pInfo2-1, #pInfo2-2, #pInfo2-3 {
  float: right;
  width: 45%;
 }
 
+#pInfo1-1 li, #pInfo1-2 li, #pInfo1-3 li, #pInfo2-1 li, #pInfo2-2 li, #pInfo2-3 li{
+ display:inline-block;
+}
+
 #pInfo3 {
+ margin-top: 20px;
  clear: both;
  width: 100%;
 }
 
-.xform {
- padding-left: 20px;
+#pInfo {
+ background-color: $theme.backgroundSecondaryColor;
+ border: 1px solid #DDDDDD;
+ overflow: auto;
+ padding: 5px;
+ padding-top: 0;
 }
 
 #pDocs1 {
@@ -154,13 +194,23 @@
 #pDocs3 {
  clear: both;
  width: 100%;
+}
+
+#pDocs1 select, #pDocs2 select, #pDocs3 select, #pInfo3 select {
+ width: auto;
+}
+
+.addSubprojectLink {
+display: block;
+margin-top: 10px;
+margin-bottom: 10px;
 }</code>
     </property>
     <property>
       <name/>
     </property>
     <property>
-      <parse/>
+      <parse>1</parse>
     </property>
     <property>
       <use>onDemand</use>
