@@ -32,8 +32,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897387000</creationDate>
-  <date>1403173504000</date>
-  <contentUpdateDate>1403173504000</contentUpdateDate>
+  <date>1404737819000</date>
+  <contentUpdateDate>1404737819000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -130,7 +130,7 @@ priority=3</parameters>
   </object>
   <content>{{velocity}}
 {{html wiki="true"}}
-#if($request.tab=="dev" || $context.action=="edit")
+#if($currentTab=="dev" || $context.action=="edit")
 (% id="pTabDev" class="xform" %)
 (((
   ; &lt;label for="ProjectsCode.ProjectsCodeClass_0_issueApplicationURL"&gt;$escapetool.xml($doc.displayPrettyName('issueApplicationURL', false, false))&lt;/label&gt;

@@ -32,8 +32,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <date>1404739577000</date>
+  <contentUpdateDate>1404739577000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -60,7 +60,7 @@
       <idField/>
       <multiSelect>1</multiSelect>
       <name>activeTabs</name>
-      <number>2</number>
+      <number>1</number>
       <picker>1</picker>
       <prettyName>Active Tabs</prettyName>
       <relationalStorage>1</relationalStorage>
@@ -75,6 +75,30 @@
       <valueField/>
       <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
     </activeTabs>
+    <defaultTab>
+      <cache>1</cache>
+      <classname/>
+      <customDisplay/>
+      <disabled>0</disabled>
+      <displayType>input</displayType>
+      <idField/>
+      <multiSelect>0</multiSelect>
+      <name>defaultTab</name>
+      <number>2</number>
+      <picker>1</picker>
+      <prettyName>Default Tab</prettyName>
+      <relationalStorage>1</relationalStorage>
+      <separator> </separator>
+      <separators/>
+      <size>1</size>
+      <sort>none</sort>
+      <sql>select nameprop.value from BaseObject as obj, StringProperty as idprop, StringProperty as nameprop where obj.className='XWiki.UIExtensionClass' and obj.id=idprop.id.id and idprop.id.name='extensionPointId' and obj.id=nameprop.id.id and nameprop.id.name='name' and idprop.value='org.xwiki.contrib.project.tab' order by nameprop.value asc</sql>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <valueField/>
+      <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
+    </defaultTab>
     <documentTags>
       <cache>0</cache>
       <classname/>
