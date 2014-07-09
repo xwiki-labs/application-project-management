@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
@@ -31,7 +30,7 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1401897375000</creationDate>
+  <creationDate>1404808207000</creationDate>
   <date>1404740792000</date>
   <contentUpdateDate>1404739875000</contentUpdateDate>
   <version>1.1</version>
@@ -86,9 +85,11 @@
 #end
     &lt;/ul&gt;
 &lt;/div&gt;
+&lt;div id="pContent"&gt;
 #set ($extensions = $services.uix.getExtensions('org.xwiki.contrib.project.tab', {'select' : $currentTab}))
 #foreach ($extension in $extensions)
 {{html clean=false}}$services.rendering.render($extension.execute(), 'xhtml/1.0'){{/html}}
+&lt;/div&gt;
 #end
 #else
 ## including all tabs
