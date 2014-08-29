@@ -56,5 +56,6 @@
   <modules>
     <module>application-project-management-generic</module>
     <module>application-project-management-development</module>
+    <module>application-project-management-stats</module>
   </modules>
 </project>
