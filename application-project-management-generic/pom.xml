@@ -29,8 +29,8 @@
   </parent>
   <artifactId>application-project-management-generic</artifactId>
   <packaging>xar</packaging>
-  <name>Project Application</name>
-  <description>XWiki Project Management Application</description>
+  <name>Generic Project Management Application</name>
+  <description>Multi project management (project name, actors, version, status, risk) and ability to create subprojects</description>
   <build>
     <!-- Needed to add support for the XAR packaging -->
     <extensions>

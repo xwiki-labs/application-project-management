@@ -29,8 +29,8 @@
   </parent>
   <artifactId>application-project-management-development</artifactId>
   <packaging>xar</packaging>
-  <name>Project Application - Development Extension</name>
-  <description>Extension to the Project Application for Development Projects</description>
+  <name>Development Project Management Application</name>
+  <description>Extension to the Project Management Application for Development Projects: SCM, task list, templates</description>
   <dependencies>
     <dependency>
       <groupId>org.xwiki.contrib</groupId>
