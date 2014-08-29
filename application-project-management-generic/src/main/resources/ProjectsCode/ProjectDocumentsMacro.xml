@@ -180,6 +180,8 @@
  #set($tagCloud = "false")
 #end
 #set($options = { 
+  'selectedColumn' : 'doc.date',
+  'defaultOrder' : 'desc',
   'translationPrefix' : 'platform.index.',
   'tagCloud' : $tagCloud, 
   'rowCount' : $xcontext.macro.params.count,

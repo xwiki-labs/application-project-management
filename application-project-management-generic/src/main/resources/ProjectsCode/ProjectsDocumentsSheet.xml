@@ -130,7 +130,7 @@ priority=2</parameters>
   </object>
   <content>{{velocity}}
 {{html wiki="true"}}
-#if($currentTab=="docs")
+#if($currentTab=="docs" &amp;&amp; $xcontext.action == "view")
 (% id="pTabDocs" class="xform" %)
 (((
 (% id="pDocs1" %)
@@ -149,7 +149,7 @@ priority=2</parameters>
 #end
 == $tag ==
 
-{{projectdocuments id="pd${velocityCount}" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title" tag="${tag}"/}}
+{{projectdocuments id="pd${velocityCount}" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, doc.date" tag="${tag}"/}}
 #end
 )))
 #set($tableID = $nb + 1)
@@ -157,7 +157,7 @@ priority=2</parameters>
 (((
 == $services.localization.render('prj.tab.docs.all') ==
 
-{{projectdocuments id="pd${tableID}" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, status, version" tagCloud="true" /}}
+{{projectdocuments id="pd${tableID}" count="5" actions="false" space="Projects" parent="${doc.fullName}" columns="doc.title, status, version, doc.date" tagCloud="true" /}}
 )))
 )))
 #end
