@@ -31,9 +31,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1403098741000</creationDate>
-  <date>1404131180000</date>
-  <contentUpdateDate>1404131180000</contentUpdateDate>
+  <creationDate>1409048285000</creationDate>
+  <date>1409238214000</date>
+  <contentUpdateDate>1409238214000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -62,21 +62,22 @@ ProjectsCode.ProjectsCodeClass_description=Description
 ProjectsCode.ProjectsCodeClass_relatedCRMProjects=CRM Projects
 ProjectsCode.ProjectsCodeClass_projectLeader=Responsable de projet
 ProjectsCode.ProjectsCodeClass_member_pm=Chef(s) de projet
+ProjectsCode.ProjectsCodeClass_member_leadDev=Lead Développeur
 ProjectsCode.ProjectsCodeClass_member_dev=Développeur(s)
-ProjectsCode.ProjectsCodeClass_member_designer=Concepteur(s)
+ProjectsCode.ProjectsCodeClass_member_designer=Designer(s)
 ProjectsCode.ProjectsCodeClass_member_infra=Ingénieur(s) Infrastructure
 ProjectsCode.ProjectsCodeClass_member_test=Testeur(s)
 ProjectsCode.ProjectsCodeClass_member_other=Autre(s) membre(s)
 ProjectsCode.ProjectsCodeClass_platformContract=Contrat de plate-forme
-ProjectsCode.ProjectsCodeClass_issueApplicationURL=Issue Application URL
-ProjectsCode.ProjectsCodeClass_versionControlURL=Version Control URL
-ProjectsCode.ProjectsCodeClass_productVersion=Product Version
-ProjectsCode.ProjectsCodeClass_productCustomizations=Product Customizations
-ProjectsCode.ProjectsCodeClass_productBranch=Product Branch
-ProjectsCode.ProjectsCodeClass_productVersionControlURLs=Product Version Control URLs
-ProjectsCode.ProjectsCodeClass_productIssues=Product issues
-ProjectsCode.ProjectsCodeClass_productCustomizationIssues=Product Customization Issues
-ProjectsCode.ProjectsCodeClass_productWorkedaroundIssues=Product Workedaround Issues
+ProjectsCode.ProjectsCodeClass_issueApplicationURL=URL de l'application de gestions de bogues
+ProjectsCode.ProjectsCodeClass_versionControlURL=URL du système de versioning
+ProjectsCode.ProjectsCodeClass_productVersion=Version du produit
+ProjectsCode.ProjectsCodeClass_productCustomizations=Personnalisations du produit
+ProjectsCode.ProjectsCodeClass_productBranch=Branche du produit
+ProjectsCode.ProjectsCodeClass_productVersionControlURLs=URLs des systèmes de versioning du produit
+ProjectsCode.ProjectsCodeClass_productIssues=Bogues du produits
+ProjectsCode.ProjectsCodeClass_productCustomizationIssues=Bogues des personnalisations du produit
+ProjectsCode.ProjectsCodeClass_productWorkedaroundIssues=Bogues des solutions provisoires sur le produit
 ProjectsCode.ProjectsCodeClass_details=Détail(s)
 ProjectsCode.DocumentClass_status_draft=Brouillon
 ProjectsCode.DocumentClass_status_other=Autre
@@ -109,20 +110,21 @@ projectscode.livetable.description=Description
 projectscode.livetable.relatedCRMProjects=CRM Projects
 projectscode.livetable.projectLeader=Responsable de projet
 projectscode.livetable.member_pm=Chef(s) de projet
+projectscode.livetable.member_leadDev=Lead Développeur
 projectscode.livetable.member_dev=Développeur(s)
-projectscode.livetable.member_designer=Concepteur(s)
+projectscode.livetable.member_designer=Designer(s)
 projectscode.livetable.member_infra=Ingénieur(s) Infrastructure
 projectscode.livetable.member_test=Testeur(s)
 projectscode.livetable.member_other=Autre(s) membre(s)
 projectscode.livetable.platformContract=Contrat de plate-forme
-projectscode.livetable.issueApplicationURL=Issue Application URL
-projectscode.livetable.versionControlURL=Version Control URL
-projectscode.livetable.productVersion=Product Version
-projectscode.livetable.productCustomizations=Product Customizations
-projectscode.livetable.productBranch=Product Branch
-projectscode.livetable.productVersionControlURLs=Product Version Control URLs
-projectscode.livetable.productIssues=Product Issues
-projectscode.livetable.productCustomizationIssues=Product Customization Issues
-projectscode.livetable.productWorkedaroundIssues=Product Workedaround Issues
+projectscode.livetable.issueApplicationURL=URL de l'application de gestions de bogues
+projectscode.livetable.versionControlURL=URL du système de versioning
+projectscode.livetable.productVersion=Version du produit
+projectscode.livetable.productCustomizations=Personnalisations du produit
+projectscode.livetable.productBranch=Branche du produit
+projectscode.livetable.productVersionControlURLs=URLs des systèmes de versioning du produit
+projectscode.livetable.productIssues=Bogues du produits
+projectscode.livetable.productCustomizationIssues=Bogues des personnalisations du produit
+projectscode.livetable.productWorkedaroundIssues=Bogues des solutions provisoires sur le produit
 projectscode.livetable.details=Détails</content>
 </xwikidoc>

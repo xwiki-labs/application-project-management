@@ -31,9 +31,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1401897375000</creationDate>
-  <date>1404131271000</date>
-  <contentUpdateDate>1404131271000</contentUpdateDate>
+  <creationDate>1409048285000</creationDate>
+  <date>1409299609000</date>
+  <contentUpdateDate>1409299606000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -72,7 +72,7 @@
     <name>ProjectsCode.ProjectsCodeTranslations</name>
     <number>0</number>
     <className>XWiki.TranslationDocumentClass</className>
-    <guid>56ff73ed-27a3-43ef-bbbd-bea85f4e1ff4</guid>
+    <guid>d58f98bc-bf69-415e-b94d-7cf93e2837f9</guid>
     <property>
       <scope>WIKI</scope>
     </property>
@@ -95,6 +95,7 @@ ProjectsCode.ProjectsCodeClass_description=Short Description
 ProjectsCode.ProjectsCodeClass_relatedCRMProjects=CRM Projects
 ProjectsCode.ProjectsCodeClass_projectLeader=Project Leader
 ProjectsCode.ProjectsCodeClass_member_pm=Project Manager(s)
+ProjectsCode.ProjectsCodeClass_member_leadDev=Lead Developer
 ProjectsCode.ProjectsCodeClass_member_dev=Developer(s)
 ProjectsCode.ProjectsCodeClass_member_designer=Designer(s)
 ProjectsCode.ProjectsCodeClass_member_infra=Infrastructure engineer(s)
@@ -142,6 +143,7 @@ projectscode.livetable.description=Short Description
 projectscode.livetable.relatedCRMProjects=CRM Projects
 projectscode.livetable.projectLeader=Project Leader
 projectscode.livetable.member_pm=Project Manager(s)
+projectscode.livetable.member_leadDev=Lead Developer
 projectscode.livetable.member_dev=Developer(s)
 projectscode.livetable.member_designer=Designer(s)
 projectscode.livetable.member_infra=Infrastructure engineer(s)
