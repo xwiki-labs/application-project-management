@@ -106,7 +106,7 @@
           #set($docref = $services.model.resolveDocument($task.get(0)))
           #set($title = $task.get(1))
 		  #if($title.isEmpty())
-            #set($title = $services.model.resolveDocument($docref).getName())
+            #set($title = $docref.getName())
           #end
           #set($selected = '')
           #if($docref == $selectedproject)
