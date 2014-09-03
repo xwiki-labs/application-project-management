@@ -35,7 +35,7 @@
   <date>1405600699000</date>
   <contentUpdateDate>1405599946000</contentUpdateDate>
   <version>1.1</version>
-  <title>${services.localization.render('eesc.task.template.title')}</title>
+  <title/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
