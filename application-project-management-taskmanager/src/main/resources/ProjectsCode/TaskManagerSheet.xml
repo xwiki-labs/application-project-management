@@ -101,15 +101,18 @@
         ## Replace the default workflow of TaskManager by using 'ProjectsCode.ProjectsCodeClass' instead of 'TaskManager.ProjectClass'
         #set($query = "SELECT DISTINCT doc.fullName, doc.title FROM XWikiDocument AS doc, BaseObject AS task WHERE doc.fullName = task.name AND task.className = 'ProjectsCode.ProjectsCodeClass' AND doc.fullName NOT LIKE '%Template'")
         #set($results = $services.query.hql($query).execute())
-        #set($selectedproject = $request.getParameter('TaskManager.TaskManagerClass_0_project'))
+        #set($selectedproject = $services.model.resolveDocument($request.getParameter('TaskManager.TaskManagerClass_0_project')))
         #foreach($task in $results)
-          #set($docname = $task.get(0))
+          #set($docref = $services.model.resolveDocument($task.get(0)))
           #set($title = $task.get(1))
+		  #if($title.isEmpty())
+            #set($title = $docref.getName())
+          #end
           #set($selected = '')
-          #if($docname == $selectedproject)
+          #if($docref == $selectedproject)
             #set($selected = 'selected')
           #end
-          &lt;option label="${title}" value="${docname}" ${selected}&gt;${title}&lt;/option&gt;
+          &lt;option label="${title}" value="${docref}" ${selected}&gt;${title}&lt;/option&gt;
         #end
       &lt;/select&gt;
     ; &lt;label for="TaskManager.TaskManagerClass_0_status"&gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&lt;/label&gt;
