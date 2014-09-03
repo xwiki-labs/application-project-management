@@ -407,5 +407,16 @@ return XWiki;
 )))
 {{/velocity}}
 
+
+
+
+
+
+
+
+
+
+
+
 {{include reference="TaskManager.WebHome" /}}</content>
 </xwikidoc>
