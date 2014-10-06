@@ -34,9 +34,11 @@
   <name>Project Application Parent POM</name>
   <developers>
     <developer>
+      <id>ldubost</id>
       <name>Ludovic Dubost</name>
     </developer>
-  	<developer>
+    <developer>
+      <id>XWikiYann</id>
       <name>Yann Flory</name>
     </developer>
   </developers>
@@ -57,5 +59,6 @@
     <module>application-project-management-generic</module>
     <module>application-project-management-development</module>
     <module>application-project-management-stats</module>
+    <module>application-project-management-taskmanager</module>
   </modules>
 </project>
