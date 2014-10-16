@@ -1,558 +1,522 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!--
- * See the NOTICE file distributed with this work for additional
- * information regarding copyright ownership.
- *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
- * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
--->
-
 <xwikidoc>
-  <web>ProjectsCode</web>
-  <name>Groovy</name>
-  <language/>
-  <defaultLanguage/>
-  <translation>0</translation>
-  <parent>ProjectsCode.WebHome</parent>
-  <creator>xwiki:XWiki.Admin</creator>
-  <author>xwiki:XWiki.Admin</author>
-  <customClass/>
-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1409048487000</creationDate>
-  <date>1409305384000</date>
-  <contentUpdateDate>1409305384000</contentUpdateDate>
-  <version>1.1</version>
-  <title/>
-  <defaultTemplate/>
-  <validationScript/>
-  <comment/>
-  <minorEdit>false</minorEdit>
-  <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>false</hidden>
-  <content>  {{groovy}}
+<web>ProjectsCode</web>
+<name>Groovy</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>xwiki:XWiki.aroger</creator>
+<author>xwiki:XWiki.aroger</author>
+<customClass></customClass>
+<contentAuthor>xwiki:XWiki.aroger</contentAuthor>
+<creationDate>1412776217000</creationDate>
+<date>1412776217000</date>
+<contentUpdateDate>1412776217000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<content>import java.util.List
+import java.util.Map
+import java.util.Set
 
-  import java.util.List
-  import java.util.Map
-  import java.util.Set
+import org.joda.time.format.DateTimeFormatter
+import com.xpn.xwiki.plugin.jodatime.JodaTimePluginApi
 
-  import org.joda.time.format.DateTimeFormatter
-  import com.xpn.xwiki.plugin.jodatime.JodaTimePluginApi
+import com.xpn.xwiki.XWikiContext
+import com.xpn.xwiki.api.Context
+import com.xpn.xwiki.api.XWiki
+import com.xpn.xwiki.api.Document
 
-  import com.xpn.xwiki.XWikiContext
-  import com.xpn.xwiki.api.Context
-  import com.xpn.xwiki.api.XWiki
-  import com.xpn.xwiki.api.Document
+class Projects
+{
 
-  class Projects
-  {
+  Context xcontext
 
-    Context xcontext
+  XWiki xwiki
 
-    XWiki xwiki
+  // Should work with references
+  Document doc
 
-    // Should work with references
-    Document doc
+  String graphDateFormatter = "dd/MM/yyyy"
 
-    String graphDateFormatter = "dd/MM/yyyy"
+  def Projects() {
+   
+  }
 
-    def Projects(Context xcontext, XWiki xwiki, Document doc) {
-      this.xcontext = xcontext
-      this.xwiki = xwiki
-      this.doc = doc
+  def setContext(Context xcontext, XWiki xwiki, Document doc) {
+    this.xcontext = xcontext
+    this.xwiki = xwiki
+    this.doc = doc
+  }
+
+
+  DateTimeFormatter getGraphDateFormatter() {
+    return xwiki.jodatime.getDateTimeFormatterForPattern(graphDateFormatter)
+  }
+
+   /**
+   * @param objList the list of costs for a specific user
+   * @param Date the date of the concerned week
+   * @return List [Cost, Coeff]
+   */
+  List getCostFromDateEmployee(List objList, Date startDate) {
+    List costCoeff = [0.0, 0.0]
+    Date bestDate = new Date(0)
+    for(Object obj in objList) {
+      if(obj.getProperty('date').value &lt; startDate &amp;&amp; obj.getProperty('date').value &gt; bestDate){
+        bestDate = obj.getProperty('date').value
+          costCoeff = [obj.getProperty('cost').value, obj.getProperty('coeff').value]
+      }
     }
+  return costCoeff
+  }
+  
+  List getUserActivity(String project, String salesOrder, List userTypeList, Date startDate, Date endDate) {
+    String dSelectClause = "select user.value, hours_1.value, hours_2.value, hours_3.value, hours_4.value, hours_5.value, hours_6.value, hours_7.value, dateStart.value"
+    String dFromClause = " from XWikiDocument as doc, BaseObject as obj, LargeStringProperty as user, StringProperty as project, DoubleProperty as hours_1, DoubleProperty as hours_2, DoubleProperty as hours_3, DoubleProperty as hours_4, DoubleProperty as hours_5, DoubleProperty as hours_6, DoubleProperty as hours_7, BaseObject as wActivity, DateProperty as dateStart"
+    String dWhereClause = " where obj.name = doc.fullName and obj.className = ? and project.id.id = obj.id and project.name = ? and project.value = ? and user.id.id = obj.id and user.name = ? and hours_1.id.id = obj.id and hours_1.name = ? and hours_2.id.id = obj.id and hours_2.name = ? and hours_3.id.id = obj.id and hours_3.name = ? and hours_4.id.id = obj.id and hours_4.name = ? and hours_5.id.id = obj.id and hours_5.name = ? and hours_6.id.id = obj.id and hours_6.name = ? and hours_7.id.id = obj.id and hours_7.name = ? and wActivity.name = doc.fullName and wActivity.className = ? and dateStart.id.id = wActivity.id and dateStart.name = ?"
+    List dParams = ["WeeklyActivityCode.DoneActivityClass", "project", project, "user", "hours_1", "hours_2", "hours_3", "hours_4", "hours_5", "hours_6", "hours_7", "WeeklyActivityCode.ActivityClass", "startDate"]
 
-    DateTimeFormatter getGraphDateFormatter() {
-      return xwiki.jodatime.getDateTimeFormatterForPattern(graphDateFormatter)
-    }
-
-     /**
-     * @param objList the list of costs for a specific user
-     * @param Date the date of the concerned week
-     * @return List [Cost, Coeff]
-     */
-    List getCostFromDateEmployee(List objList, Date startDate) {
-      List costCoeff = [0.0, 0.0]
-      Date bestDate = new Date(0)
-      for(Object obj in objList) {
-        if(obj.getProperty('date').value &lt; startDate &amp;&amp; obj.getProperty('date').value &gt; bestDate){
-          bestDate = obj.getProperty('date').value
-            costCoeff = [obj.getProperty('cost').value, obj.getProperty('coeff').value]
+    // User type
+    if(userTypeList.size() &gt; 0) {
+      dFromClause += ", StringProperty as userType"
+      dSelectClause += ", userType.value"
+      dWhereClause += " and userType.id.id = obj.id and userType.name = ? and userType.value in ("
+      dParams.add("userType")
+      for(int index=0; index&lt;userTypeList.size(); index++) {
+        if(index &gt; 0) {
+          dWhereClause += ","
         }
+        dWhereClause += "?"
+        dParams.add(userTypeList.get(index))
       }
-    return costCoeff
-    }
-    
-    List getUserActivity(String project, String salesOrder, List userTypeList, Date startDate, Date endDate) {
-      String dSelectClause = "select user.value, hours_1.value, hours_2.value, hours_3.value, hours_4.value, hours_5.value, hours_6.value, hours_7.value, dateStart.value"
-      String dFromClause = " from XWikiDocument as doc, BaseObject as obj, LargeStringProperty as user, StringProperty as project, DoubleProperty as hours_1, DoubleProperty as hours_2, DoubleProperty as hours_3, DoubleProperty as hours_4, DoubleProperty as hours_5, DoubleProperty as hours_6, DoubleProperty as hours_7, BaseObject as wActivity, DateProperty as dateStart"
-      String dWhereClause = " where obj.name = doc.fullName and obj.className = ? and project.id.id = obj.id and project.name = ? and project.value = ? and user.id.id = obj.id and user.name = ? and hours_1.id.id = obj.id and hours_1.name = ? and hours_2.id.id = obj.id and hours_2.name = ? and hours_3.id.id = obj.id and hours_3.name = ? and hours_4.id.id = obj.id and hours_4.name = ? and hours_5.id.id = obj.id and hours_5.name = ? and hours_6.id.id = obj.id and hours_6.name = ? and hours_7.id.id = obj.id and hours_7.name = ? and wActivity.name = doc.fullName and wActivity.className = ? and dateStart.id.id = wActivity.id and dateStart.name = ?"
-      List dParams = ["WeeklyActivityCode.DoneActivityClass", "project", project, "user", "hours_1", "hours_2", "hours_3", "hours_4", "hours_5", "hours_6", "hours_7", "WeeklyActivityCode.ActivityClass", "startDate"]
-
-      // User type
-      if(userTypeList.size() &gt; 0) {
-        dFromClause += ", StringProperty as userType"
-        dSelectClause += ", userType.value"
-        dWhereClause += " and userType.id.id = obj.id and userType.name = ? and userType.value in ("
-        dParams.add("userType")
-        for(int index=0; index&lt;userTypeList.size(); index++) {
-          if(index &gt; 0) {
-            dWhereClause += ","
-          }
-          dWhereClause += "?"
-          dParams.add(userTypeList.get(index))
-        }
-        dWhereClause += ")"
-      }
-
-      // Sales order
-      if(!salesOrder.isEmpty()) {
-        dFromClause += ", StringProperty as salesOrder"
-        dWhereClause += " and salesOrder.id.id = obj.id and salesOrder.name = ? and salesOrder.value = ?"
-        dParams.addAll(["salesOrder", salesOrder])
-      }
-
-      // Start date
-      if(startDate) {
-        dWhereClause += " and timestamp(dateStart.value) &gt;= ?"
-        dParams.add(startDate)
-      }
-
-      // End date
-      if(endDate) {
-        dFromClause += ", DateProperty as dateEnd"
-        dWhereClause += " and dateEnd.id.id = wActivity.id and dateEnd.name = ? and (timestamp(dateEnd.value) &lt;= ? or dateEnd.value is null)"
-        dParams.addAll(["endDate", endDate])
-      }
-
-      if(startDate) {
-        dWhereClause += " order by timestamp(dateStart.value) asc"
-      }
-
-      return xwiki.search(dSelectClause + dFromClause + dWhereClause, 0, 0, dParams)
+      dWhereClause += ")"
     }
 
-    /**
-     * @param salesOrder the full name of the sales order document (optional)
-     * @param userTypeList a list of user types (strings)
-     * @startDate the start of the period
-     * @endDate the end of the period
-     * @return SUM of ALL number of days done for the given user types with and without coeff
-     */
-    List getWorkDurationTotal(String salesOrder, List userTypeList, Date startDate, Date endDate) {
-      // Should work with references
-      return this.getWorkDurationTotal(doc.fullName, salesOrder, userTypeList, startDate, endDate)
+    // Sales order
+    if(!salesOrder.isEmpty()) {
+      dFromClause += ", StringProperty as salesOrder"
+      dWhereClause += " and salesOrder.id.id = obj.id and salesOrder.name = ? and salesOrder.value = ?"
+      dParams.addAll(["salesOrder", salesOrder])
     }
 
-    /**
-     * @param project the full name of the project document
-     * @see getWorkDurationTotal(String salesOrder, List userTypeList, Date startDate, Date endDate)
-     */
-    List getWorkDurationTotal(String project, String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
-      double workDurationTotal = 0.0
-      double workDurationTotalCoeff = 0.0
-      List userActivityList = getUserActivity(project, salesOrder, userTypeList, startDate, endDate)
-
-      // Create map
-      for(List userActivity in userActivityList) {
-        Date dateActivity = new Date(userActivity.get(8).time)
-        List costsList = xwiki.getDocument('EmployeesCosts.'+xwiki.getDocument(userActivity.get(0)).name).getObjects('EmployeesCosts.EmployeesCostsClass')
-        Double dateCoeff = getCostFromDateEmployee(costsList, dateActivity).get(1)
-        Double dateCost = getCostFromDateEmployee(costsList, dateActivity).get(0)
-        for(int index=1; index&lt;8; index++) {
-          if(userActivity.get(index)) {
-            if(unit == 2) {
-              workDurationTotal += userActivity.get(index) * dateCost
-            }
-            else {
-              workDurationTotal += userActivity.get(index) / 7
-              workDurationTotalCoeff += userActivity.get(index) * dateCoeff / 7
-            }
-          }
-        }
-      }
-
-      return [workDurationTotal, workDurationTotalCoeff]
+    // Start date
+    if(startDate) {
+      dWhereClause += " and timestamp(dateStart.value) &gt;= ?"
+      dParams.add(startDate)
     }
 
-    /**
-     * @param salesOrder the full name of the sales order document (optional)
-     * @param userTypeList a list of user types (strings)
-     * @startDate the start of the period
-     * @endDate the end of the period
-     * @return Map of SUM of number of days done by user types
-     * userType1 -&gt; nb days,( nb days coeff,) sold days
-     * userType2 -&gt; nb days,( nb days coeff,) sold days
-     * userType3 -&gt; nb days,( nb days coeff,) sold days
-     * userType4 -&gt; nb days,( nb days coeff,) sold days
-     */
-    Map getWorkDurations(String salesOrder, List userTypeList, Date startDate, Date endDate) {
-      // Should work with references
-      return this.getWorkDurations(doc.fullName, salesOrder, userTypeList, startDate, endDate)
+    // End date
+    if(endDate) {
+      dFromClause += ", DateProperty as dateEnd"
+      dWhereClause += " and dateEnd.id.id = wActivity.id and dateEnd.name = ? and (timestamp(dateEnd.value) &lt;= ? or dateEnd.value is null)"
+      dParams.addAll(["endDate", endDate])
     }
 
-    /**
-     * @param project the full name of the project document
-     * @see getWorkDurations(String salesOrder, List userTypeList, Date startDate, Date endDate)
-     */
-    Map getWorkDurations(String project, String salesOrder, List userTypeList, Date startDate, Date endDate) {
-
-      Map workDurations = new HashMap()
-      List userActivityList = getUserActivity(project, salesOrder, userTypeList, startDate, endDate)
-      double doneTotal = 0.0
-      double doneTotalCoeff = 0.0
-      double soldDays = 0.0
-      // Create map
-      for(List userActivity in userActivityList) {
-        double doneNb = 0.0
-        double doneNbCoeff = 0.0
-
-        for(int index=1; index&lt;8; index++) {
-          if(userActivity.get(index)) {
-            doneNb += userActivity.get(index)
-          }
-        }
-        soldDays = getSoldDays(project, salesOrder, [userActivity.get(9)]).get(userActivity.get(9))
-        Date dateActivity = new Date(userActivity.get(8).time)
-        List costsList = xwiki.getDocument('EmployeesCosts.'+xwiki.getDocument(userActivity.get(0)).name).getObjects('EmployeesCosts.EmployeesCostsClass')
-        Double dateCoeff = getCostFromDateEmployee(costsList, dateActivity).get(1)
-        // FR day is formed out of 7 hours ...
-        // TO DO : we should see how we could compute the multiplier depending on the country
-        doneNb = doneNb / 7;
-        doneNbCoeff = doneNb * dateCoeff
-
-        doneTotal += doneNb
-        doneTotalCoeff += doneNbCoeff
-
-        String key = xwiki.getDocument(userActivity.get(9)).getValue('name')
-        if(workDurations.keySet().contains(key)) {
-          doneNb += workDurations.get(key).get(0)
-          doneNbCoeff += workDurations.get(key).get(1)
-        }
-        // userType1 -&gt; nbdays
-        workDurations.put(key, [doneNb.round(1), doneNbCoeff.round(1), soldDays.round(1)])
-
-      }
-
-      soldDays = getTotalSoldDays(project, salesOrder, userTypeList, 1)
-      workDurations.put('zztotal', [doneTotal.round(1), doneTotalCoeff.round(1), soldDays.round(1)])
-      return workDurations.sort()
+    if(startDate) {
+      dWhereClause += " order by timestamp(dateStart.value) asc"
     }
 
-    /**
-     * @param salesOrder the full name of the sales order document (optional)
-     * @param userTypeList a list of user types (strings)
-     * @param unit (1 -&gt; days spent; 2 -&gt; money spent)
-     * @startDate the start of the period
-     * @endDate the end of the period
-     * @return Map of SUM of number of days done by person
-     * person1 -&gt; nbdays(, nb days coeff)
-     * person2 -&gt; nbdays(, nb days coeff)
-     * person3 -&gt; nbdays(, nb days coeff)
-     */
-    Map getWorkDurationsByPerson(String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
-      // Should work with references
-      return this.getWorkDurationsByPerson(doc.fullName, salesOrder, userTypeList, startDate, endDate, unit)
-    }
-
-    /**
-     * @param project the full name of the project document
-     * @see getWorkDurationsByPerson(String salesOrder, List userTypeList, Date startDate, Date endDate)
-     */
-    Map getWorkDurationsByPerson(String project, String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
-
-      Map workDurationsByPerson = new HashMap()
-
-      List userActivityList = getUserActivity(project, salesOrder, userTypeList, startDate, endDate)
-      double doneTotal = 0.0
-      double doneTotalCoeff = 0.0
-
-      // Create map
-      for(List userActivity in userActivityList) {
-        double doneNb = 0.0
-        double doneNbCoeff = 0.0
-        for(int index=1; index&lt;8; index++) {
-          if(userActivity.get(index)) {
-            doneNb += userActivity.get(index)
-          }
-        }
-
-        Date dateActivity = new Date(userActivity.get(8).time)
-        List costsList = xwiki.getDocument('EmployeesCosts.'+xwiki.getDocument(userActivity.get(0)).name).getObjects('EmployeesCosts.EmployeesCostsClass')
-        Double dateCost = getCostFromDateEmployee(costsList, dateActivity).get(0)
-        Double dateCoeff = getCostFromDateEmployee(costsList, dateActivity).get(1)
-        if(unit == 2) {
-          doneNb = doneNb * dateCost
-        }
-        else {
-          // FR day is formed out of 7 hours ...
-          // TO DO : we should see how we could compute the multiplier depending on the country
-          doneNb = doneNb / 7
-          doneNbCoeff = doneNb * dateCoeff
-        }
-
-        doneTotal += doneNb
-        doneTotalCoeff += doneNbCoeff
-
-        if(doneNb &gt; 0) {
-          String key = userActivity.get(0)
-          if(workDurationsByPerson.keySet().contains(key)) {
-            doneNb += workDurationsByPerson.get(key).get(0)
-            doneNbCoeff += workDurationsByPerson.get(key).get(1)
-          }
-
-        // person -&gt; nbdays
-        workDurationsByPerson.put(key, [doneNb.round(1), doneNbCoeff.round(1)])
-
-        }
-      }
-
-      if(doneTotal != 0.0 || doneTotalCoeff != 0.0) {
-        workDurationsByPerson.put('zztotal', [doneTotal.round(1), doneTotalCoeff.round(1)])
-      }
-      return workDurationsByPerson.sort()
-    }
-
-
+    return xwiki.search(dSelectClause + dFromClause + dWhereClause, 0, 0, dParams)
+  }
 
   /**
-     * @param salesOrder the full name of the sales order document (optional)
-     * @param userTypeList a list of user types (strings)
-     * @param unit (1 -&gt; days spent; 2 -&gt; money spent)
-     * @startDate the start of the period
-     * @endDate the end of the period
-     * @return Map of SUM of number of days done by week (cumulative)
-     * week1 -&gt; nbdays
-     * week2 -&gt; nbdays
-     */
-    Map getWorkDurationsByWeek(String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
-      // Should work with references
-      return this.getWorkDurationsByWeek(doc.fullName, salesOrder, userTypeList, startDate, endDate, unit)
-    }
+   * @param salesOrder the full name of the sales order document (optional)
+   * @param userTypeList a list of user types (strings)
+   * @startDate the start of the period
+   * @endDate the end of the period
+   * @return SUM of ALL number of days done for the given user types with and without coeff
+   */
+  List getWorkDurationTotal(String salesOrder, List userTypeList, Date startDate, Date endDate) {
+    // Should work with references
+    return this.getWorkDurationTotal(doc.fullName, salesOrder, userTypeList, startDate, endDate)
+  }
 
-    /**
-     * @param project the full name of the project document
-     * @see getWorkDurationsByWeek(String salesOrder, List userTypeList, Date startDate, Date endDate)
-     */
-    Map getWorkDurationsByWeek(String project, String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
-      Map workDurationsByWeek = new HashMap()
-      List userActivityList = getUserActivity(project, salesOrder, userTypeList, startDate, endDate)
-      if(userActivityList.size() != 0) {
-        def salesObject = xwiki.getDocument(project).getObject('ProjectsCode.SalesOrderClass', 'name', salesOrder)
-        Double soldDays = getTotalSoldDays(project, salesOrder, userTypeList, unit) //Used to trace simulated sold line
-        def progress = 0
-        if(salesObject.getProperty('progress').value != null) {
-          progress = (salesObject.getProperty('progress').value)*soldDays/100 //Used to trace simulated progress line
-        }
-        Date salesStart //define weekStart
-        Date salesEnd //define weekEnd
-        Date progressDate = new Date() // = salesEnd (if the project is done) or = today (if the project is in progress)
-        if(salesObject) { //def start and end date in the graph from sales order values
-          salesStart = salesObject.getProperty('startDate').value
-          salesEnd = salesObject.getProperty('endDate').value
-        }
-        if(userActivityList.get(0)) { //if we have data from Weekly Activity app, weekStart is the date when the work begin (date of the first activity)
-          List firstActivity = userActivityList.get(0)
-          salesStart = new Date(firstActivity.get(8).time)
-        }
-        if(progressDate &gt; salesEnd) {
-          progressDate = salesEnd
-        }
-        //Get week values from Dates
-        Double weekStart = Double.parseDouble(xwiki.formatDate(salesStart, "w"))
-        Double weekEnd = Double.parseDouble(xwiki.formatDate(salesEnd, "w"))
-        Double weekProgress = Double.parseDouble(xwiki.formatDate(progressDate, "w"))
-        Double yearStart = Double.parseDouble(xwiki.formatDate(salesStart, "YYYY"))
-        Double yearEnd = Double.parseDouble(xwiki.formatDate(salesEnd, "YYYY"))
-        Double yearProgress = Double.parseDouble(xwiki.formatDate(progressDate, "YYYY"))
-        
-        Double totalWeekDiff = 52*(yearEnd-yearStart) + (weekEnd-weekStart)
-        Double progressWeekDiff = 52*(yearProgress-yearStart) + (weekProgress-weekStart)
-        
-        // Create map
-        for(List userActivity in userActivityList) {
-          double doneNb = 0.0
-          double doneNbCoeff = 0.0
-          for(int index=1; index&lt;8; index++) {
-            if(userActivity.get(index)) {
-              doneNb += userActivity.get(index) //Number of hours
-            }
-          }
-          Date dateActivity = new Date(userActivity.get(8).time)
-          List costsList = xwiki.getDocument('EmployeesCosts.'+xwiki.getDocument(userActivity.get(0)).name).getObjects('EmployeesCosts.EmployeesCostsClass')
-          Double dateCost = getCostFromDateEmployee(costsList, dateActivity).get(0) //Hourly cost
-          Double dateCoeff = getCostFromDateEmployee(costsList, dateActivity).get(1)
+  /**
+   * @param project the full name of the project document
+   * @see getWorkDurationTotal(String salesOrder, List userTypeList, Date startDate, Date endDate)
+   */
+  List getWorkDurationTotal(String project, String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
+    double workDurationTotal = 0.0
+    double workDurationTotalCoeff = 0.0
+    List userActivityList = getUserActivity(project, salesOrder, userTypeList, startDate, endDate)
+
+    // Create map
+    for(List userActivity in userActivityList) {
+      Date dateActivity = new Date(userActivity.get(8).time)
+      List costsList = xwiki.getDocument('EmployeesCosts.'+xwiki.getDocument(userActivity.get(0)).name).getObjects('EmployeesCosts.EmployeesCostsClass')
+      Double dateCoeff = getCostFromDateEmployee(costsList, dateActivity).get(1)
+      Double dateCost = getCostFromDateEmployee(costsList, dateActivity).get(0)
+      for(int index=1; index&lt;8; index++) {
+        if(userActivity.get(index)) {
           if(unit == 2) {
-            doneNb = doneNb * dateCost
+            workDurationTotal += userActivity.get(index) * dateCost
           }
           else {
-            doneNb = doneNb / 7; //7 hours per day
-            doneNbCoeff = doneNb * dateCoeff;
-          }
-          Date date = new Date(userActivity.get(8).time)
-          if(doneNb &gt; 0) {
-            int weekNb = xwiki.jodatime.getDateTime(date.time).getWeekOfWeekyear()
-            int yearNb = xwiki.jodatime.getDateTime(date.time).getWeekyear()
-            String key = yearNb+'-'+weekNb
-            if(workDurationsByWeek.keySet().contains(key)) {
-              doneNb += workDurationsByWeek.get(key).get(0)
-              doneNbCoeff += workDurationsByWeek.get(key).get(1)
-            }
-            // week -&gt; nbdays, nbdays with coeff
-            workDurationsByWeek.put(key, [doneNb, doneNbCoeff, 0])
-          }
-        }
-
-        //Make the data cumulative (keys must be sorted by week) and add sold values
-        double doneNb = 0.0
-        double doneNbCoeff = 0.0
-        double doneNbOld = 0.0
-        double doneNbCoeffOld = 0.0
-        double soldNb = 0.0
-        double progressNb = 0.0
-        Double weekCurrent = 0.0
-        Double yearCurrent = 0.0
-        double currentWeekDiff = 0.0
-        workDurationsByWeek = workDurationsByWeek.sort()
-        for(Map.Entry workDurations in workDurationsByWeek) {
-          doneNb = (workDurations.value.get(0) + doneNbOld).round(1)
-          doneNbCoeff = (workDurations.value.get(1) + doneNbCoeffOld).round(1)
-          doneNbOld = doneNb
-          doneNbCoeffOld = doneNbCoeff
-          weekCurrent = Double.parseDouble((workDurations.key).tokenize('-').get(1))
-          yearCurrent = Double.parseDouble((workDurations.key).tokenize('-').get(0))
-          currentWeekDiff = 52*(yearCurrent-yearStart) + (weekCurrent-weekStart)
-          soldNb = ((soldDays/(totalWeekDiff+1)) * (currentWeekDiff+1)).round(1)
-          progressNb = ((progress/(progressWeekDiff+1)) * (currentWeekDiff+1)).round(1)
-          workDurationsByWeek.put(workDurations.key, [doneNb, doneNbCoeff,progressNb, soldNb])
-        }
-      }
-      return workDurationsByWeek
-    }
-
-      /**
-     * @param project the full name of the project document
-     * @param salesOrder the name of the sales order
-     * @return List of stats data
-     * progress  -&gt; %
-     * daysSold -&gt; nbdays
-     * costSold -&gt; cost
-     * costDone -&gt; cost
-     * costDone -&gt; %
-     * costLeft -&gt; cost
-     * costEstimated -&gt; cost
-     * daysDone -&gt; nbdays
-     * daysDone -&gt; %
-     * daysLeft  -&gt; nbdays
-     * daysEstimated -&gt; nbdays
-     * daysDoneCoeff -&gt; nbdays
-     * daysDoneCoeff -&gt; %
-     * daysLeftCoeff  -&gt; nbdays
-     * daysEstimatedCoeff -&gt; nbdays
-     */
-    List getStats(String project, String salesOrder, List userTypeList) {
-      Object salesValues = xwiki.getDocument(project).getObject('ProjectsCode.SalesOrderClass', 'name' , salesOrder)
-      def progress = 0.0
-      if(salesValues.getProperty('progress').value != null) {
-        progress = salesValues.getProperty('progress').value
-      }
-      def totalSold = getTotalSoldDays(project, salesOrder, userTypeList, 1)
-      def totalSoldCost = getTotalSoldDays(project, salesOrder, userTypeList, 2)
-      def totalDone = getWorkDurationTotal(project, salesOrder, userTypeList, null, null, 1).get(0).round(1)
-      def totalDoneCoeff = getWorkDurationTotal(project, salesOrder, userTypeList, null, null, 1).get(1).round(1)
-      def totalDoneCost = getWorkDurationTotal(project, salesOrder, userTypeList, null, null, 2).get(0).round(1)
-      def totalDoneCostP = (100*(totalDoneCost/totalSoldCost)).round()
-      def leftCost = (totalSoldCost-totalDoneCost).round(1)
-      def estimatedCost = (100*(totalDoneCost/progress)-totalDoneCost).round(1)
-      def totalDoneP = (100*(totalDone/totalSold)).round()
-      def leftDone = (totalSold-totalDone).round(1)
-      def estimatedDone = (100*(totalDone/progress)-totalDone).round(1)
-      def totalDoneCoeffP = (100*(totalDoneCoeff/totalSold)).round()
-      def leftDoneCoeff = (totalSold-totalDoneCoeff).round(1)
-      def estimatedDoneCoeff = (100*(totalDoneCoeff/progress)-totalDoneCoeff).round(1)
-      def totalreamingdays = estimatedDone + totalDone
-      def totalreamingdayscoef = estimatedDoneCoeff + totalDoneCoeff
-      def totalreamingamount = estimatedCost + totalDoneCost
-
-      return [progress, totalSold, totalSoldCost, totalDoneCost, totalDoneCostP, leftCost, estimatedCost,
-              totalDone, totalDoneP, leftDone, estimatedDone, 
-              totalDoneCoeff,  totalDoneCoeffP, leftDoneCoeff, estimatedDoneCoeff, totalreamingdays, totalreamingdayscoef, totalreamingamount, 0]
-    }
-
-      /**
-     * @param project the full name of the project document
-     * @param salesOrder the name of the sales order
-     * @param userTypeList a list of user types (full name of the docs with UserTypesClass objects)
-     * @return Map of SUM of days sold by user type
-     * dev -&gt; nbdays
-     * tester -&gt; nbdays
-     * pm -&gt; nbdays
-     */
-    Map getSoldDays(String project, String salesOrder, List userTypeList) {
-      Map soldDays = new HashMap()
-
-      Object salesValues = xwiki.getDocument(project).getObject('ProjectsCode.SalesOrderClass', 'name' , salesOrder)
-
-      // Create map
-      for(String userType in userTypeList) {
-        double daysNb = 0.0
-        String key = xwiki.getDocument(userType).getValue('name')
-        if(salesValues.getProperty(key +'Days')) {
-          daysNb = salesValues.getProperty(key +'Days').value
-        }
-     
-        // userType1 -&gt; nbdays
-        soldDays.put(userType, daysNb)
-      }
-
-      return soldDays
-    }
-      /**
-     * @param project the full name of the project document
-     * @param salesOrder the name of the sales order
-     * @param userTypeList a list of user types (full name of the docs with UserTypesClass objects)
-     * @param unit (1 -&gt; days spent; 2 -&gt; money spent)
-     * @return SUM of days sold
-     * nbdays
-     */
-    Double getTotalSoldDays(String project, String salesOrder, List userTypeList, Integer unit) {
-      double soldDays = 0
-
-      Object salesValues = xwiki.getDocument(project).getObject('ProjectsCode.SalesOrderClass', 'name' , salesOrder)
-      if(salesValues) {
-        if(unit == 2) {
-          //7 hours per day
-          if(salesValues.getProperty('amount').value != null) {
-            soldDays = salesValues.getProperty('amount').value
-          }
-        }
-        else {
-          // Create map
-          for(String userType in userTypeList) {
-            double daysNb = 0.0
-            String key = xwiki.getDocument(userType).getValue('name')
-            if(salesValues.getProperty(key+'Days').value != null) {
-              daysNb = salesValues.getProperty(key+'Days').value
-            }
-            soldDays += daysNb
+            workDurationTotal += userActivity.get(index) / 7
+            workDurationTotalCoeff += userActivity.get(index) * dateCoeff / 7
           }
         }
       }
-
-      return soldDays
     }
+
+    return [workDurationTotal, workDurationTotalCoeff]
   }
-  {{/groovy}}</content>
-</xwikidoc>
+
+  /**
+   * @param salesOrder the full name of the sales order document (optional)
+   * @param userTypeList a list of user types (strings)
+   * @startDate the start of the period
+   * @endDate the end of the period
+   * @return Map of SUM of number of days done by user types
+   * userType1 -&gt; nb days,( nb days coeff,) sold days
+   * userType2 -&gt; nb days,( nb days coeff,) sold days
+   * userType3 -&gt; nb days,( nb days coeff,) sold days
+   * userType4 -&gt; nb days,( nb days coeff,) sold days
+   */
+  Map getWorkDurations(String salesOrder, List userTypeList, Date startDate, Date endDate) {
+    // Should work with references
+    return this.getWorkDurations(doc.fullName, salesOrder, userTypeList, startDate, endDate)
+  }
+
+  /**
+   * @param project the full name of the project document
+   * @see getWorkDurations(String salesOrder, List userTypeList, Date startDate, Date endDate)
+   */
+  Map getWorkDurations(String project, String salesOrder, List userTypeList, Date startDate, Date endDate) {
+
+    Map workDurations = new HashMap()
+    List userActivityList = getUserActivity(project, salesOrder, userTypeList, startDate, endDate)
+    double doneTotal = 0.0
+    double doneTotalCoeff = 0.0
+    double soldDays = 0.0
+    // Create map
+    for(List userActivity in userActivityList) {
+      double doneNb = 0.0
+      double doneNbCoeff = 0.0
+
+      for(int index=1; index&lt;8; index++) {
+        if(userActivity.get(index)) {
+          doneNb += userActivity.get(index)
+        }
+      }
+      soldDays = getSoldDays(project, salesOrder, [userActivity.get(9)]).get(userActivity.get(9))
+      Date dateActivity = new Date(userActivity.get(8).time)
+      List costsList = xwiki.getDocument('EmployeesCosts.'+xwiki.getDocument(userActivity.get(0)).name).getObjects('EmployeesCosts.EmployeesCostsClass')
+      Double dateCoeff = getCostFromDateEmployee(costsList, dateActivity).get(1)
+      // FR day is formed out of 7 hours ...
+      // TO DO : we should see how we could compute the multiplier depending on the country
+      doneNb = doneNb / 7;
+      doneNbCoeff = doneNb * dateCoeff
+
+      doneTotal += doneNb
+      doneTotalCoeff += doneNbCoeff
+
+      String key = xwiki.getDocument(userActivity.get(9)).getValue('name')
+      if(workDurations.keySet().contains(key)) {
+        doneNb += workDurations.get(key).get(0)
+        doneNbCoeff += workDurations.get(key).get(1)
+      }
+      // userType1 -&gt; nbdays
+      workDurations.put(key, [doneNb.round(1), doneNbCoeff.round(1), soldDays.round(1)])
+
+    }
+
+    soldDays = getTotalSoldDays(project, salesOrder, userTypeList, 1)
+    workDurations.put('zztotal', [doneTotal.round(1), doneTotalCoeff.round(1), soldDays.round(1)])
+    return workDurations.sort()
+  }
+
+  /**
+   * @param salesOrder the full name of the sales order document (optional)
+   * @param userTypeList a list of user types (strings)
+   * @param unit (1 -&gt; days spent; 2 -&gt; money spent)
+   * @startDate the start of the period
+   * @endDate the end of the period
+   * @return Map of SUM of number of days done by person
+   * person1 -&gt; nbdays(, nb days coeff)
+   * person2 -&gt; nbdays(, nb days coeff)
+   * person3 -&gt; nbdays(, nb days coeff)
+   */
+  Map getWorkDurationsByPerson(String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
+    // Should work with references
+    return this.getWorkDurationsByPerson(doc.fullName, salesOrder, userTypeList, startDate, endDate, unit)
+  }
+
+  /**
+   * @param project the full name of the project document
+   * @see getWorkDurationsByPerson(String salesOrder, List userTypeList, Date startDate, Date endDate)
+   */
+  Map getWorkDurationsByPerson(String project, String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
+
+    Map workDurationsByPerson = new HashMap()
+
+    List userActivityList = getUserActivity(project, salesOrder, userTypeList, startDate, endDate)
+    double doneTotal = 0.0
+    double doneTotalCoeff = 0.0
+
+    // Create map
+    for(List userActivity in userActivityList) {
+      double doneNb = 0.0
+      double doneNbCoeff = 0.0
+      for(int index=1; index&lt;8; index++) {
+        if(userActivity.get(index)) {
+          doneNb += userActivity.get(index)
+        }
+      }
+
+      Date dateActivity = new Date(userActivity.get(8).time)
+      List costsList = xwiki.getDocument('EmployeesCosts.'+xwiki.getDocument(userActivity.get(0)).name).getObjects('EmployeesCosts.EmployeesCostsClass')
+      Double dateCost = getCostFromDateEmployee(costsList, dateActivity).get(0)
+      Double dateCoeff = getCostFromDateEmployee(costsList, dateActivity).get(1)
+      if(unit == 2) {
+        doneNb = doneNb * dateCost
+      }
+      else {
+        // FR day is formed out of 7 hours ...
+        // TO DO : we should see how we could compute the multiplier depending on the country
+        doneNb = doneNb / 7
+        doneNbCoeff = doneNb * dateCoeff
+      }
+
+      doneTotal += doneNb
+      doneTotalCoeff += doneNbCoeff
+
+      if(doneNb &gt; 0) {
+        String key = userActivity.get(0)
+        if(workDurationsByPerson.keySet().contains(key)) {
+          doneNb += workDurationsByPerson.get(key).get(0)
+          doneNbCoeff += workDurationsByPerson.get(key).get(1)
+        }
+
+      // person -&gt; nbdays
+      workDurationsByPerson.put(key, [doneNb.round(1), doneNbCoeff.round(1)])
+
+      }
+    }
+
+    if(doneTotal != 0.0 || doneTotalCoeff != 0.0) {
+      workDurationsByPerson.put('zztotal', [doneTotal.round(1), doneTotalCoeff.round(1)])
+    }
+    return workDurationsByPerson.sort()
+  }
+
+
+
+/**
+   * @param salesOrder the full name of the sales order document (optional)
+   * @param userTypeList a list of user types (strings)
+   * @param unit (1 -&gt; days spent; 2 -&gt; money spent)
+   * @startDate the start of the period
+   * @endDate the end of the period
+   * @return Map of SUM of number of days done by week (cumulative)
+   * week1 -&gt; nbdays
+   * week2 -&gt; nbdays
+   */
+  Map getWorkDurationsByWeek(String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
+    // Should work with references
+    return this.getWorkDurationsByWeek(doc.fullName, salesOrder, userTypeList, startDate, endDate, unit)
+  }
+
+  /**
+   * @param project the full name of the project document
+   * @see getWorkDurationsByWeek(String salesOrder, List userTypeList, Date startDate, Date endDate)
+   */
+  Map getWorkDurationsByWeek(String project, String salesOrder, List userTypeList, Date startDate, Date endDate, Integer unit) {
+    Map workDurationsByWeek = new HashMap()
+    List userActivityList = getUserActivity(project, salesOrder, userTypeList, startDate, endDate)
+    def salesObject = xwiki.getDocument(project).getObject('ProjectsCode.SalesOrderClass', 'name', salesOrder)
+    Double soldDays = getTotalSoldDays(project, salesOrder, userTypeList, unit) //Used to trace simulated sold line
+    def progress = 0
+    if(salesObject.getProperty('progress').value != null) {
+      progress = (salesObject.getProperty('progress').value)*soldDays/100 //Used to trace simulated progress line
+    }
+    Date salesStart //define weekStart
+    Date salesEnd //define weekEnd
+    Date progressDate = new Date() // = salesEnd (if the project is done) or = today (if the project is in progress)
+    if(salesObject) { //def start and end date in the graph from sales order values
+      salesStart = salesObject.getProperty('startDate').value
+      salesEnd = salesObject.getProperty('endDate').value
+    }
+    if(userActivityList.get(0)) { //if we have data from Weekly Activity app, weekStart is the date when the work begin (date of the first activity)
+      List firstActivity = userActivityList.get(0)
+      salesStart = new Date(firstActivity.get(8).time)
+    }
+    if(progressDate &gt; salesEnd) {
+      progressDate = salesEnd
+    }
+    //Get week values from Dates
+    Double weekStart = Double.parseDouble(xwiki.formatDate(salesStart, "w"))
+    Double weekEnd = Double.parseDouble(xwiki.formatDate(salesEnd, "w"))
+    Double weekProgress = Double.parseDouble(xwiki.formatDate(progressDate, "w"))
+    // Create map
+    for(List userActivity in userActivityList) {
+      double doneNb = 0.0
+      double doneNbCoeff = 0.0
+      for(int index=1; index&lt;8; index++) {
+        if(userActivity.get(index)) {
+          doneNb += userActivity.get(index) //Number of hours
+        }
+      }
+      Date dateActivity = new Date(userActivity.get(8).time)
+      List costsList = xwiki.getDocument('EmployeesCosts.'+xwiki.getDocument(userActivity.get(0)).name).getObjects('EmployeesCosts.EmployeesCostsClass')
+      Double dateCost = getCostFromDateEmployee(costsList, dateActivity).get(0) //Hourly cost
+      Double dateCoeff = getCostFromDateEmployee(costsList, dateActivity).get(1)
+      if(unit == 2) {
+        doneNb = doneNb * dateCost
+      }
+      else {
+        doneNb = doneNb / 7; //7 hours per day
+        doneNbCoeff = doneNb * dateCoeff;
+      }
+      Date date = new Date(userActivity.get(8).time)
+      if(doneNb &gt; 0) {
+        int weekNb = xwiki.jodatime.getDateTime(date.time).getWeekOfWeekyear()
+        String key = weekNb
+        if(workDurationsByWeek.keySet().contains(key)) {
+          doneNb += workDurationsByWeek.get(key).get(0)
+          doneNbCoeff += workDurationsByWeek.get(key).get(1)
+        }
+        // week -&gt; nbdays, nbdays with coeff
+        workDurationsByWeek.put(key, [doneNb, doneNbCoeff, 0])
+      }
+    }
+
+    //Make the data cumulative (keys must be sorted by week) and add sold values
+    double doneNb = 0.0
+    double doneNbCoeff = 0.0
+    double doneNbOld = 0.0
+    double doneNbCoeffOld = 0.0
+    double soldNb = 0.0
+    double progressNb = 0.0
+    workDurationsByWeek = workDurationsByWeek.sort()
+    for(Map.Entry workDurations in workDurationsByWeek) {
+      doneNb = (workDurations.value.get(0) + doneNbOld).round(1)
+      doneNbCoeff = (workDurations.value.get(1) + doneNbCoeffOld).round(1)
+      doneNbOld = doneNb
+      doneNbCoeffOld = doneNbCoeff
+      soldNb = ((soldDays/(weekEnd - weekStart+1)) * (Double.parseDouble(workDurations.key)-weekStart+1)).round(1)
+      progressNb = ((progress/(weekProgress - weekStart+1)) * (Double.parseDouble(workDurations.key)-weekStart+1)).round(1)
+      workDurationsByWeek.put(workDurations.key, [doneNb, doneNbCoeff,progressNb, soldNb])
+    }
+    return workDurationsByWeek
+  }
+
+    /**
+   * @param project the full name of the project document
+   * @param salesOrder the name of the sales order
+   * @return List of stats data
+   * progress  -&gt; %
+   * daysSold -&gt; nbdays
+   * costSold -&gt; cost
+   * costDone -&gt; cost
+   * costDone -&gt; %
+   * costLeft -&gt; cost
+   * costEstimated -&gt; cost
+   * daysDone -&gt; nbdays
+   * daysDone -&gt; %
+   * daysLeft  -&gt; nbdays
+   * daysEstimated -&gt; nbdays
+   * daysDoneCoeff -&gt; nbdays
+   * daysDoneCoeff -&gt; %
+   * daysLeftCoeff  -&gt; nbdays
+   * daysEstimatedCoeff -&gt; nbdays
+   */
+  List getStats(String project, String salesOrder, List userTypeList) {
+    Object salesValues = xwiki.getDocument(project).getObject('ProjectsCode.SalesOrderClass', 'name' , salesOrder)
+    def progress = 0.0
+    if(salesValues.getProperty('progress').value != null) {
+      progress = salesValues.getProperty('progress').value
+    }
+    def totalSold = getTotalSoldDays(project, salesOrder, userTypeList, 1)
+    def totalSoldCost = getTotalSoldDays(project, salesOrder, userTypeList, 2)
+    def totalDone = getWorkDurationTotal(project, salesOrder, userTypeList, null, null, 1).get(0).round(1)
+    def totalDoneCoeff = getWorkDurationTotal(project, salesOrder, userTypeList, null, null, 1).get(1).round(1)
+    def totalDoneCost = getWorkDurationTotal(project, salesOrder, userTypeList, null, null, 2).get(0).round(1)
+    def totalDoneCostP = (100*(totalDoneCost/totalSoldCost)).round()
+    def leftCost = (totalSoldCost-totalDoneCost).round(1)
+    def estimatedCost = (100*(totalDoneCost/progress)-totalDoneCost).round(1)
+    def totalDoneP = (100*(totalDone/totalSold)).round()
+    def leftDone = (totalSold-totalDone).round(1)
+    def estimatedDone = (100*(totalDone/progress)-totalDone).round(1)
+    def totalDoneCoeffP = (100*(totalDoneCoeff/totalSold)).round()
+    def leftDoneCoeff = (totalSold-totalDoneCoeff).round(1)
+    def estimatedDoneCoeff = (100*(totalDoneCoeff/progress)-totalDoneCoeff).round(1)
+    def totalreamingdays = estimatedDone + totalDone
+    def totalreamingdayscoef = estimatedDoneCoeff + totalDoneCoeff
+    def totalreamingamount = estimatedCost + totalDoneCost
+
+    return [progress, totalSold, totalSoldCost, totalDoneCost, totalDoneCostP, leftCost, estimatedCost,
+            totalDone, totalDoneP, leftDone, estimatedDone, 
+            totalDoneCoeff,  totalDoneCoeffP, leftDoneCoeff, estimatedDoneCoeff, totalreamingdays, totalreamingdayscoef, totalreamingamount]
+  }
+
+    /**
+   * @param project the full name of the project document
+   * @param salesOrder the name of the sales order
+   * @param userTypeList a list of user types (full name of the docs with UserTypesClass objects)
+   * @return Map of SUM of days sold by user type
+   * dev -&gt; nbdays
+   * tester -&gt; nbdays
+   * pm -&gt; nbdays
+   */
+  Map getSoldDays(String project, String salesOrder, List userTypeList) {
+    Map soldDays = new HashMap()
+
+    Object salesValues = xwiki.getDocument(project).getObject('ProjectsCode.SalesOrderClass', 'name' , salesOrder)
+
+    // Create map
+    for(String userType in userTypeList) {
+      double daysNb = 0.0
+      String key = xwiki.getDocument(userType).getValue('name')
+      if(salesValues.getProperty(key +'Days')) {
+        daysNb = salesValues.getProperty(key +'Days').value
+      }
+   
+      // userType1 -&gt; nbdays
+      soldDays.put(userType, daysNb)
+    }
+
+    return soldDays
+  }
+    /**
+   * @param project the full name of the project document
+   * @param salesOrder the name of the sales order
+   * @param userTypeList a list of user types (full name of the docs with UserTypesClass objects)
+   * @param unit (1 -&gt; days spent; 2 -&gt; money spent)
+   * @return SUM of days sold
+   * nbdays
+   */
+  Double getTotalSoldDays(String project, String salesOrder, List userTypeList, Integer unit) {
+    double soldDays = 0
+
+    Object salesValues = xwiki.getDocument(project).getObject('ProjectsCode.SalesOrderClass', 'name' , salesOrder)
+    if(salesValues) {
+      if(unit == 2) {
+        //7 hours per day
+        if(salesValues.getProperty('amount').value != null) {
+          soldDays = salesValues.getProperty('amount').value
+        }
+      }
+      else {
+        // Create map
+        for(String userType in userTypeList) {
+          double daysNb = 0.0
+          String key = xwiki.getDocument(userType).getValue('name')
+          if(salesValues.getProperty(key+'Days').value != null) {
+            daysNb = salesValues.getProperty(key+'Days').value
+          }
+          soldDays += daysNb
+        }
+      }
+    }
+
+    return soldDays
+  }
+}</content></xwikidoc>
