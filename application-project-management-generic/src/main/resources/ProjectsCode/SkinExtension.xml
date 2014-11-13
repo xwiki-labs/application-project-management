@@ -515,7 +515,7 @@ c3Bhbj4KICA8L2Rpdj4KICA8L2Rpdj4KPC9mb3JtPgo=
     <className>XWiki.XWikiSkins</className>
     <guid>6a93d33f-19f0-495b-bc38-b5bbf895bc08</guid>
     <property>
-      <baseskin/>
+      <baseskin>flamingo</baseskin>
     </property>
     <property>
       <edit.vm/>
