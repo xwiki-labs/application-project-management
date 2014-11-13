@@ -60,5 +60,6 @@
     <module>application-project-management-development</module>
     <module>application-project-management-stats</module>
     <module>application-project-management-taskmanager</module>
+    <module>application-project-management-jira</module>
   </modules>
 </project>
