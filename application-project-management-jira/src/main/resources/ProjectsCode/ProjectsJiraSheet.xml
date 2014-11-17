@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
@@ -31,9 +30,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1388530800000</creationDate>
-  <date>1388530800000</date>
-  <contentUpdateDate>1388530800000</contentUpdateDate>
+  <creationDate>1388527200000</creationDate>
+  <date>1388527200000</date>
+  <contentUpdateDate>1388527200000</contentUpdateDate>
   <version>1.1</version>
   <title>ProjectsJiraSheet</title>
   <defaultTemplate/>
@@ -103,10 +102,11 @@
  #set($jiraurl = $issueApplicationURL.substring(0, $index))
 #end 
 == $services.localization.render("prj.dev.jira.title") ==
+
 #if($jiraurl &amp;&amp; $jiraProjectName !="" &amp;&amp; $currentVersion != "")
-{{jira2 style="table" jql="true" url="${jiraurl}"}}
+{{securejira style="table" jql="true" url="${jiraurl}"}}
 (project = '$jiraProjectName' and fixVersion = '$currentVersion' and resolution='unresolved')
-{{/jira2}}
+{{/securejira}}
 #else
 $services.localization.render("prj.dev.jira.configmissing")
 #end
