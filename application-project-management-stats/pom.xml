@@ -29,8 +29,8 @@
   </parent>
   <artifactId>application-project-management-stats</artifactId>
   <packaging>xar</packaging>
-  <name>Project Application - Stats Extension</name>
-  <description>Extension to the Project Application for Projects statistics (charts and numbers)</description>
+  <name>Stats Project Management Application</name>
+  <description>Extension to the Project Management Application for Projects statistics (charts and numbers)</description>
   <dependencies>
     <dependency>
       <groupId>org.xwiki.contrib</groupId>
