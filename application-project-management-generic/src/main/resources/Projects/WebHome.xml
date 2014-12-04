@@ -189,7 +189,7 @@
     <property>
       <parameters>label=$services.localization.render('prj.app.title')
 target=Projects.WebHome
-icon=icon:chart_curve</parameters>
+icon=icon:chart_line</parameters>
     </property>
     <property>
       <scope>wiki</scope>
