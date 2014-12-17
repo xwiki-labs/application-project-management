@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
@@ -20,29 +19,31 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc>
+<xwikidoc version="1.1">
   <web>Projects</web>
   <name>WebHome</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent>Main.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
+  <parent>Main.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
-  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1401897373000</creationDate>
   <date>1403856421000</date>
   <contentUpdateDate>1403856188000</contentUpdateDate>
   <version>1.1</version>
   <title>$services.localization.render('platform.appwithinminutes.appHomePageTitle', [$services.localization.render('prj.title')])</title>
-  <defaultTemplate/>
-  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
   <hidden>false</hidden>
+  <content>{{include document="ProjectsCode.WebHome" /}}</content>
   <object>
+    <name>Projects.WebHome</name>
+    <number>0</number>
+    <className>AppWithinMinutes.LiveTableClass</className>
+    <guid>08a0c4be-5e56-4958-8550-68910a4db12a</guid>
     <class>
       <name>AppWithinMinutes.LiveTableClass</name>
       <customClass/>
@@ -94,10 +95,6 @@
         <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
       </description>
     </class>
-    <name>Projects.WebHome</name>
-    <number>0</number>
-    <className>AppWithinMinutes.LiveTableClass</className>
-    <guid>08a0c4be-5e56-4958-8550-68910a4db12a</guid>
     <property>
       <class>ProjectsCode.ProjectsCodeClass</class>
     </property>
@@ -109,6 +106,10 @@
     </property>
   </object>
   <object>
+    <name>Projects.WebHome</name>
+    <number>0</number>
+    <className>XWiki.UIExtensionClass</className>
+    <guid>222bf801-d4cc-4a35-b83b-bfb89750dea2</guid>
     <class>
       <name>XWiki.UIExtensionClass</name>
       <customClass/>
@@ -173,10 +174,6 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </scope>
     </class>
-    <name>Projects.WebHome</name>
-    <number>0</number>
-    <className>XWiki.UIExtensionClass</className>
-    <guid>222bf801-d4cc-4a35-b83b-bfb89750dea2</guid>
     <property>
       <content/>
     </property>
@@ -195,5 +192,4 @@ icon=icon:chart_curve</parameters>
       <scope>wiki</scope>
     </property>
   </object>
-  <content>{{include document="ProjectsCode.WebHome" /}}</content>
 </xwikidoc>
