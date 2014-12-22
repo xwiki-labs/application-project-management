@@ -77,7 +77,7 @@
       <scope>WIKI</scope>
     </property>
   </object>
-  <content>prj.title=Projects Application
+  <content>prj.home.title=Projects
 prj.app.title=Projects
 prj.salesorder.name=Name
 prj.salesorder.status=Status

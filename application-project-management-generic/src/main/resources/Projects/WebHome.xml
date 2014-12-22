@@ -33,7 +33,7 @@
   <date>1403856421000</date>
   <contentUpdateDate>1403856188000</contentUpdateDate>
   <version>1.1</version>
-  <title>$services.localization.render('platform.appwithinminutes.appHomePageTitle', [$services.localization.render('prj.title')])</title>
+  <title>$services.localization.render('prj.home.title')</title>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
