@@ -42,7 +42,7 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>prj.title=Application Projets
+  <content>prj.home.title=Projets
 prj.app.title=Projets
 prj.salesorder.name=Nom
 prj.salesorder.status=Statut
