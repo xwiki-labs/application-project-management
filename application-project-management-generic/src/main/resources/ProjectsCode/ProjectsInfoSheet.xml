@@ -202,7 +202,7 @@ priority=1</parameters>
   {{projectdocuments id="pd1" count="5" actions="false" parent="${doc.fullName}" space="Projects" columns="doc.title" tag="project"/}}
 #end
 
-  == $escapetool.xml($doc.displayPrettyName('details', false, false)) ==
+  ; &lt;label for="content_container836"&gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&lt;/label&gt;
   : $doc.display('details')
 )))
 )))
