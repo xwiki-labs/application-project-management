@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!--
- * See the NOTICE file distributed with this work for additional
- * information regarding copyright ownership.
- *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
- * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
--->
-
 <xwikidoc>
   <web>ProjectsCode</web>
   <name>ProjectsStatsSheet</name>
@@ -409,16 +388,13 @@ LCB3aWR0aCwgaGVpZ2h0LCB2YWx1ZXMsIG9wdHMpOwogICAgfTsKICAgIAogICAgUmFwaGFlbC5m
 bi5iYXJjaGFydCA9IGZ1bmN0aW9uKHgsIHksIHdpZHRoLCBoZWlnaHQsIHZhbHVlcywgb3B0cykg
 ewogICAgICAgIHJldHVybiBuZXcgVkJhcmNoYXJ0KHRoaXMsIHgsIHksIHdpZHRoLCBoZWlnaHQs
 IHZhbHVlcywgb3B0cyk7CiAgICB9Owp9KSgpOwo=
-</content>
-  </attachment>
-  <attachment>
-    <filename>g.line.js</filename>
-    <filesize>4979</filesize>
-    <author>xwiki:XWiki.ldubost</author>
-    <date>1412261146000</date>
-    <version>1.2</version>
-    <comment/>
-    <content>LyohCiAqIGcuUmFwaGFlbCAwLjUgLSBDaGFydGluZyBsaWJyYXJ5LCBiYXNlZCBvbiBSYXBoYcOr
+</content></attachment><attachment>
+<filename>g.line.js</filename>
+<filesize>4979</filesize>
+<author>xwiki:XWiki.ldubost</author>
+<date>1412261146000</date>
+<version>1.2</version>
+<comment></comment><content>LyohCiAqIGcuUmFwaGFlbCAwLjUgLSBDaGFydGluZyBsaWJyYXJ5LCBiYXNlZCBvbiBSYXBoYcOr
 bAogKgogKiBDb3B5cmlnaHQgKGMpIDIwMDkgRG1pdHJ5IEJhcmFub3Zza2l5IChodHRwOi8vZy5y
 YXBoYWVsanMuY29tKQogKiBMaWNlbnNlZCB1bmRlciB0aGUgTUlUIChodHRwOi8vd3d3Lm9wZW5z
 b3VyY2Uub3JnL2xpY2Vuc2VzL21pdC1saWNlbnNlLnBocCkgbGljZW5zZS4KICovCihmdW5jdGlv
@@ -506,16 +482,13 @@ Y2hDb2x1bW49ZnVuY3Rpb24oaSl7SyhpKTtyZXR1cm4gdGhpc307cmV0dXJuIGFkfXZhciBjPWZ1
 bmN0aW9uKCl7fTtjLnByb3RvdHlwZT1SYXBoYWVsLmc7Yi5wcm90b3R5cGU9bmV3IGM7UmFwaGFl
 bC5mbi5saW5lY2hhcnQ9ZnVuY3Rpb24oZixrLGcsZSxqLGksaCl7cmV0dXJuIG5ldyBiKHRoaXMs
 ZixrLGcsZSxqLGksaCl9fSkoKTs=
-</content>
-  </attachment>
-  <attachment>
-    <filename>g.raphael.js</filename>
-    <filesize>10411</filesize>
-    <author>xwiki:XWiki.ldubost</author>
-    <date>1412261146000</date>
-    <version>1.2</version>
-    <comment/>
-    <content>LyohCiAqIGcuUmFwaGFlbCAwLjUgLSBDaGFydGluZyBsaWJyYXJ5LCBiYXNlZCBvbiBSYXBoYcOr
+</content></attachment><attachment>
+<filename>g.raphael.js</filename>
+<filesize>10411</filesize>
+<author>xwiki:XWiki.ldubost</author>
+<date>1412261146000</date>
+<version>1.2</version>
+<comment></comment><content>LyohCiAqIGcuUmFwaGFlbCAwLjUgLSBDaGFydGluZyBsaWJyYXJ5LCBiYXNlZCBvbiBSYXBoYcOr
 bAogKgogKiBDb3B5cmlnaHQgKGMpIDIwMDkgRG1pdHJ5IEJhcmFub3Zza2l5IChodHRwOi8vZy5y
 YXBoYWVsanMuY29tKQogKiBMaWNlbnNlZCB1bmRlciB0aGUgTUlUIChodHRwOi8vd3d3Lm9wZW5z
 b3VyY2Uub3JnL2xpY2Vuc2VzL21pdC1saWNlbnNlLnBocCkgbGljZW5zZS4KICovClJhcGhhZWwu
@@ -698,16 +671,13 @@ Y2UoLygjIysoPzpcLiMrKT8pfCglJSsoPzpcLiUrKT8pL2csZnVuY3Rpb24oZCxmLGUpe2lmKGYp
 e3JldHVybigrYykudG9GaXhlZChmLnJlcGxhY2UoL14jK1wuPy9nLCIiKS5sZW5ndGgpfWlmKGUp
 e3JldHVybihjKjEwMC9iKS50b0ZpeGVkKGUucmVwbGFjZSgvXiUrXC4/L2csIiIpLmxlbmd0aCkr
 IiUifX0pfWVsc2V7cmV0dXJuKCtjKS50b0ZpeGVkKDApfX19Ow==
-</content>
-  </attachment>
-  <attachment>
-    <filename>raphael-min.js</filename>
-    <filesize>60293</filesize>
-    <author>xwiki:XWiki.ldubost</author>
-    <date>1412261146000</date>
-    <version>1.2</version>
-    <comment/>
-    <content>LyoKICogUmFwaGFlbCAxLjUuMiAtIEphdmFTY3JpcHQgVmVjdG9yIExpYnJhcnkKICoKICogQ29w
+</content></attachment><attachment>
+<filename>raphael-min.js</filename>
+<filesize>60293</filesize>
+<author>xwiki:XWiki.ldubost</author>
+<date>1412261146000</date>
+<version>1.2</version>
+<comment></comment><content>LyoKICogUmFwaGFlbCAxLjUuMiAtIEphdmFTY3JpcHQgVmVjdG9yIExpYnJhcnkKICoKICogQ29w
 eXJpZ2h0IChjKSAyMDEwIERtaXRyeSBCYXJhbm92c2tpeSAoaHR0cDovL3JhcGhhZWxqcy5jb20p
 CiAqIExpY2Vuc2VkIHVuZGVyIHRoZSBNSVQgKGh0dHA6Ly9yYXBoYWVsanMuY29tL2xpY2Vuc2Uu
 aHRtbCkgbGljZW5zZS4KICovCihmdW5jdGlvbigpe2Z1bmN0aW9uIGEoKXtpZihhLmlzKGFyZ3Vt
@@ -1765,89 +1735,88 @@ OmFyZ3VtZW50cztiJiZhLmlzKGIsRikmJmVbd10tMSYmKGI9YltZXShkLGZ1bmN0aW9uKGEsYil7
 cmV0dXJuIGVbKytiXT09bnVsbD9wOmVbYl19KSk7cmV0dXJuIGJ8fHB9O2EubmluamE9ZnVuY3Rp
 b24oKXtpLndhcz9oLlJhcGhhZWw9aS5pczpkZWxldGUgUmFwaGFlbDtyZXR1cm4gYX07YS5lbD1i
 TzthLnN0PWNDW2VdO2kud2FzP2guUmFwaGFlbD1hOlJhcGhhZWw9YX0pKCk=
-</content>
-  </attachment>
-  <object>
-    <class>
-      <name>XWiki.StyleSheetExtension</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <cache>
-        <cache>0</cache>
-        <disabled>0</disabled>
-        <displayType>select</displayType>
-        <multiSelect>0</multiSelect>
-        <name>cache</name>
-        <number>5</number>
-        <prettyName>Caching policy</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <unmodifiable>0</unmodifiable>
-        <values>long|short|default|forbid</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </cache>
-      <code>
-        <disabled>0</disabled>
-        <name>code</name>
-        <number>2</number>
-        <prettyName>Code</prettyName>
-        <rows>20</rows>
-        <size>50</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </code>
-      <name>
-        <disabled>0</disabled>
-        <name>name</name>
-        <number>1</number>
-        <prettyName>Name</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </name>
-      <parse>
-        <disabled>0</disabled>
-        <displayFormType>select</displayFormType>
-        <displayType>yesno</displayType>
-        <name>parse</name>
-        <number>4</number>
-        <prettyName>Parse content</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </parse>
-      <use>
-        <cache>0</cache>
-        <disabled>0</disabled>
-        <displayType>select</displayType>
-        <multiSelect>0</multiSelect>
-        <name>use</name>
-        <number>3</number>
-        <prettyName>Use this extension</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <unmodifiable>0</unmodifiable>
-        <values>onDemand=On demand|always=Always</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </use>
-    </class>
-    <name>ProjectsCode.ProjectsStatsSheet</name>
-    <number>0</number>
-    <className>XWiki.StyleSheetExtension</className>
-    <guid>c2003bf2-ea75-45a8-91ee-810f6ba4fa95</guid>
-    <property>
-      <cache>long</cache>
-    </property>
-    <property>
-      <code>#graphCaption {
+</content></attachment>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>onDemand=On demand|always=Always</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>ProjectsCode.ProjectsStatsSheet</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>c2003bf2-ea75-45a8-91ee-810f6ba4fa95</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>#graphCaption {
   padding : 5px;
   display: inline-block;
   width: 14%;
@@ -1895,105 +1864,99 @@ TzthLnN0PWNDW2VdO2kud2FzP2guUmFwaGFlbD1hOlJhcGhhZWw9YX0pKCk=
 .bold {
   font-weight: bold;
 }
-</code>
-    </property>
-    <property>
-      <name/>
-    </property>
-    <property>
-      <parse>1</parse>
-    </property>
-    <property>
-      <use>onDemand</use>
-    </property>
-  </object>
-  <object>
-    <class>
-      <name>XWiki.UIExtensionClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <content>
-        <disabled>0</disabled>
-        <name>content</name>
-        <number>3</number>
-        <prettyName>Extension Content</prettyName>
-        <rows>10</rows>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </content>
-      <extensionPointId>
-        <disabled>0</disabled>
-        <name>extensionPointId</name>
-        <number>1</number>
-        <prettyName>Extension Point ID</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </extensionPointId>
-      <name>
-        <disabled>0</disabled>
-        <name>name</name>
-        <number>2</number>
-        <prettyName>Extension ID</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </name>
-      <parameters>
-        <disabled>0</disabled>
-        <name>parameters</name>
-        <number>4</number>
-        <prettyName>Extension Parameters</prettyName>
-        <rows>10</rows>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </parameters>
-      <scope>
-        <cache>0</cache>
-        <disabled>0</disabled>
-        <displayType>select</displayType>
-        <multiSelect>0</multiSelect>
-        <name>scope</name>
-        <number>5</number>
-        <prettyName>Extension Scope</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <unmodifiable>0</unmodifiable>
-        <values>wiki=Current Wiki|user=Current User|global=Global</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </scope>
-    </class>
-    <name>ProjectsCode.ProjectsStatsSheet</name>
-    <number>0</number>
-    <className>XWiki.UIExtensionClass</className>
-    <guid>872e3a89-1f0d-4a43-b8e5-537853d43e84</guid>
-    <property>
-      <content>{{include document="ProjectsCode.ProjectsStatsSheet" /}}</content>
-    </property>
-    <property>
-      <extensionPointId>org.xwiki.contrib.project.tab</extensionPointId>
-    </property>
-    <property>
-      <name>stats</name>
-    </property>
-    <property>
-      <parameters>label=prj.tab.stats.title
+</code></property><property><name></name></property><property><parse>1</parse>
+</property>
+<property>
+<use>onDemand</use>
+</property>
+</object>
+<object>
+<class>
+<name>XWiki.UIExtensionClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<content>
+<disabled>0</disabled>
+<name>content</name>
+<number>3</number>
+<prettyName>Extension Content</prettyName>
+<rows>10</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</content>
+<extensionPointId>
+<disabled>0</disabled>
+<name>extensionPointId</name>
+<number>1</number>
+<prettyName>Extension Point ID</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</extensionPointId>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>2</number>
+<prettyName>Extension ID</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parameters>
+<disabled>0</disabled>
+<name>parameters</name>
+<number>4</number>
+<prettyName>Extension Parameters</prettyName>
+<rows>10</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</parameters>
+<scope>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>scope</name>
+<number>5</number>
+<prettyName>Extension Scope</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>wiki=Current Wiki|user=Current User|global=Global</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</scope>
+</class>
+<name>ProjectsCode.ProjectsStatsSheet</name>
+<number>0</number>
+<className>XWiki.UIExtensionClass</className>
+<guid>872e3a89-1f0d-4a43-b8e5-537853d43e84</guid>
+<property>
+<content>{{include document="ProjectsCode.ProjectsStatsSheet" /}}</content>
+</property>
+<property>
+<extensionPointId>org.xwiki.contrib.project.tab</extensionPointId>
+</property>
+<property>
+<name>stats</name>
+</property>
+<property>
+<parameters>label=prj.tab.stats.title
 priority=6</parameters>
-    </property>
-    <property>
-      <scope>wiki</scope>
-    </property>
-  </object>
-  <content>{{velocity}}
+</property>
+<property>
+<scope>wiki</scope>
+</property>
+</object>
+<content>{{velocity}}
 #if($context.action=="view")
 #set($discard = $xwiki.ssx.use('ProjectsCode.ProjectsStatsSheet'))
 #set($discard = $xcontext.put('currentTab', $currentTab))
@@ -2273,5 +2236,4 @@ priority=6</parameters>
      #end
   #end
 #end
-{{/velocity}}</content>
-</xwikidoc>
+{{/velocity}}</content></xwikidoc>
