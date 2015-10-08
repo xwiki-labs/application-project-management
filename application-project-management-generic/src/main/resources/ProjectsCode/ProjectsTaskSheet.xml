@@ -136,7 +136,11 @@ priority=3</parameters>
 #if($context.action == 'view')
  #set($configDoc = $xwiki.getDocument("ProjectsCode.ProjectConfig")) 
  #set($taskTool = $configDoc.getValue("taskTool"))
- {{include document="${taskTool}" /}}
+ #if($taskTool == 'ProjectsCode.ProjectsNoneSheet')
+   (% class="noitems" %)$services.localization.render('prj.tab.tasks.empty')
+ #else
+   {{include document="${taskTool}" /}}
+ #end
 #end
 #end
 {{/html}}

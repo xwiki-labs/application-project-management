@@ -123,6 +123,7 @@ prj.tab.docs.all=All Documents
 prj.tab.info.title=Info
 prj.tab.docs.title=Documents
 prj.tab.task.title=Tasks
+prj.tab.tasks.empty=There are no tasks yet
 prj.tab.dev.title=Dev
 prj.tab.sales.title=Sales
 prj.tab.infra.title=Infrastructure
