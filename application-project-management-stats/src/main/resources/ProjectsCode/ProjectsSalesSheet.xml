@@ -142,7 +142,7 @@ priority=3</parameters>
 (((
  #set($rurl = $escapetool.url($doc.getURL("inline", "tab=sales"))) 
  #set($token = $services.csrf.token)
-&lt;a class="button" href="$doc.getURL("objectadd", "classname=ProjectsCode.SalesOrderClass&amp;xredirect=${rurl}&amp;form_token=${token}")"&gt;$services.localization.render('prj.salesorder.add')&lt;/a&gt;
+&lt;a class="button" href="$doc.getURL("edit", "xpage=editobject&amp;xaction=addObject&amp;className=ProjectsCode.SalesOrderClass&amp;xredirect=${rurl}&amp;form_token=${token}")"&gt;$services.localization.render('prj.salesorder.add')&lt;/a&gt;
 )))
  #else
 (((
