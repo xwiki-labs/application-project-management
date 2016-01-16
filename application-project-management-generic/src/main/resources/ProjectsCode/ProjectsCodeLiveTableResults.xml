@@ -57,11 +57,11 @@
      #set($discard = $row.put('riskLevel_value', $parent.getValue('riskLevel')))
      #set($discard = $row.put('riskLevel', $services.localization.render("ProjectsCode.ProjectsCodeClass_riskLevel_${parent.getValue('riskLevel')}")))
    #end
-   #if("$!{parent.getValue('riskLevel')}" != "")
+   #if("$!{parent.getValue('productVersion')}" != "")
      #set($discard = $row.put('productVersion_value', $parent.getValue('productVersion')))
      #set($discard = $row.put('productVersion', $parent.getValue('productVersion')))
    #end
-   #if("$!{parent.getValue('riskLevel')}" != "")
+   #if("$!{parent.getValue('productCustomizations')}" != "")
      #set($discard = $row.put('productCustomizations_value', $parent.getValue('productCustomizations')))
      #set($discard = $row.put('productCustomizations', $parent.getValue('productCustomizations')))
    #end
